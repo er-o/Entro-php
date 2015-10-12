@@ -1,7 +1,10 @@
 <?php
 
 	public class Joueur {
-		private $isole;
+		private $pions;
 
+		function __construct(){
+			$this -> $pions = array();
+		}
 	}
 ?>
