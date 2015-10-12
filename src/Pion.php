@@ -1,10 +1,11 @@
-<? php
+<?php
 
-	public class Pion {
-		private Joueur $joueur;
-			
-		
+	class Pion {
+		private $isole;
 
 
+		function __construct(){
+			$this -> isole = False;
+		}
 	}
 ?>
