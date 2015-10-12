@@ -1,21 +1,32 @@
 <?php
+
 	class Square {
-		var $pion;
+		var $value;
 		
 		function __construct(){
-			$this -> pion = 0;
+			$this -> value = 0;
 		}
 		
-		public function setCase($pion){
-			$this -> pion = $pion;
+		public function setSquare($value){
+			$this -> value = $value;
 		}
 		
 		public function setEmpty(){
-			$this -> pion = null;
+			$this -> value = 0;
 		}
 
 		public function toString(){
-			return $this -> pion;
+			switch ($this -> value) {
+				case 1:
+					return " x &nbsp;";
+					break;
+				case 2:
+					return " o &nbsp;";
+					break;
+				default:
+					return " - &nbsp;&nbsp;";
+					break;
+			}
 		}
 	}
 ?>

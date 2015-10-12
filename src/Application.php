@@ -4,13 +4,10 @@
 	
 	$j1 = new Joueur('j1');
 	$j2 = new Joueur('j2');
-	echo $j1 -> toString();
-	echo "<br />";
+
 	$partie = new Game($j1, $j2);
-	echo "<br /> test";
 
-
-
-	$pion = new Pion($j1);
-	echo "<br />".$pion -> toString();
+	$plateau = new Plateau();
+	$plateau -> reset();
+	$plateau -> affichage();
 ?>

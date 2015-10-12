@@ -9,7 +9,6 @@
 
 		function __construct(){
 			$this -> cases = array();
-			echo "lancement du remplissage";
 			$this -> fill(); //on remplit le plateau
 		}
 		
@@ -20,7 +19,28 @@
 					$this -> cases[$i][$k] = new Square();
 				}
 			}
-			echo "<br /> fin du remplissage";
+		}
+
+		public function reset(){
+			for($k = 0; $k < self::NB_COLONNES;$k++){
+				$this -> cases[0][$k] -> setSquare(1);
+			}
+			for($k = 0; $k < self::NB_COLONNES;$k++){
+				$this -> cases[4][$k] -> setSquare(2);
+			}
+			$this -> cases[1][0] -> setSquare(1);
+			$this -> cases[1][4] -> setSquare(1);
+			$this -> cases[3][0] -> setSquare(2);
+			$this -> cases[3][4] -> setSquare(2);
+		}
+
+		public function affichage(){
+			for($i = 0; $i < self::NB_LIGNES;$i++){
+				for($k = 0; $k < self::NB_COLONNES;$k++){
+					echo $this -> cases[$i][$k] -> toString()." ";
+				}
+				echo "<br />";
+			}
 		}
 	}
 ?>
