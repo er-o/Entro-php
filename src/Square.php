@@ -4,7 +4,6 @@
 		var $value;
 		
 		function __construct(){
-			$this -> value = 0;
 		}
 		
 		public function setSquare($value){
@@ -12,15 +11,15 @@
 		}
 		
 		public function setEmpty(){
-			$this -> value = 0;
+			$this -> value = null;
 		}
 
 		public function toString(){
-			switch ($this -> value) {
-				case 1:
+			switch ($this -> value -> getName()) {
+				case "j1":
 					return " x &nbsp;";
 					break;
-				case 2:
+				case "j2":
 					return " o &nbsp;";
 					break;
 				default:

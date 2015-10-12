@@ -21,17 +21,17 @@
 			}
 		}
 
-		public function reset(){
+		public function reset($j1, $j2){
 			for($k = 0; $k < self::NB_COLONNES;$k++){
-				$this -> cases[0][$k] -> setSquare(1);
+				$this -> cases[0][$k] -> setSquare(new Pion($j1));
 			}
 			for($k = 0; $k < self::NB_COLONNES;$k++){
-				$this -> cases[4][$k] -> setSquare(2);
+				$this -> cases[4][$k] -> setSquare(new Pion($j2));
 			}
-			$this -> cases[1][0] -> setSquare(1);
-			$this -> cases[1][4] -> setSquare(1);
-			$this -> cases[3][0] -> setSquare(2);
-			$this -> cases[3][4] -> setSquare(2);
+			$this -> cases[1][0] -> setSquare(new Pion($j1));
+			$this -> cases[1][4] -> setSquare(new Pion($j1));
+			$this -> cases[3][0] -> setSquare(new Pion($j2));
+			$this -> cases[3][4] -> setSquare(new Pion($j2));
 		}
 
 		public function affichage(){

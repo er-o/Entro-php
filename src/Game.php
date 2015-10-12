@@ -1,5 +1,6 @@
 <?php
 	require "Plateau.php";
+	require "Joueur.php";
 
 	class Game {
 		var $joueur1;

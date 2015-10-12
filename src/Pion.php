@@ -21,5 +21,9 @@
 				return "true";
 			}
 		}
+
+		public function getName(){
+			return $this -> joueur -> toString();
+		}
 	}
 ?>
