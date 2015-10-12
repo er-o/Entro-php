@@ -1,5 +1,4 @@
 <?php
-
 	class Square {
 		var $pion;
 		
