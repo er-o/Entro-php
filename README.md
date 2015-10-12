@@ -1,4 +1,3 @@
 # Entro-php
 
-
-Pour bien apprendre github, utilisez [ce lien](http://rogerdudler.github.io/git-guide/)
+Ce projet à pour but de réaliser le jeu de l'entropie, en php.
