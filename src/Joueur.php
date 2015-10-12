@@ -16,5 +16,9 @@
 				$pions[$i] = new Pion();
 			}
 		}
+
+		public function toString(){
+			return $this -> name;
+		}
 	}
 ?>
