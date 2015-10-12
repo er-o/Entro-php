@@ -1,21 +1,22 @@
 <?php
 
 	class Square {
-		var $value;
+		var $pion;
 		
-		function __construct(){
+		function __construct($pion){
+			$this -> pion = $pion;
 		}
 		
-		public function setSquare($value){
-			$this -> value = $value;
+		public function setSquare($pion){
+			$this -> pion = $pion;
 		}
 		
 		public function setEmpty(){
-			$this -> value = null;
+			$this -> pion = null;
 		}
 
 		public function toString(){
-			switch ($this -> value -> getName()) {
+			switch ($this -> pion -> getName()) {
 				case "j1":
 					return " x &nbsp;";
 					break;

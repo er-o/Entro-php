@@ -9,14 +9,14 @@
 
 		function __construct(){
 			$this -> cases = array();
-			$this -> fill(); //on remplit le plateau
+			$this -> fill(new Joueur("null")); //on remplit le plateau
 		}
 		
 		//creation du plateau
-		public function fill(){
+		public function fill($joueur){
 			for($i = 0; $i < self::NB_LIGNES;$i++){
 				for($k = 0; $k < self::NB_COLONNES;$k++){
-					$this -> cases[$i][$k] = new Square();
+					$this -> cases[$i][$k] = new Square(new Pion($joueur));
 				}
 			}
 		}
