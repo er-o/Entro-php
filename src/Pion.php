@@ -1,7 +1,7 @@
 <?php
 
 	class Pion {
-		private $isole;
+		var $isole;
 
 
 		function __construct(){

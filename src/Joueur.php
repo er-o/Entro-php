@@ -2,17 +2,18 @@
 	require 'Pion.php';
 	
 	class Joueur {
-		private $pions;
+		var $name;
+		var $pions;
 
-		function __construct(){
-			$this -> $pions = array();
+		function __construct($name){
+			$this -> pions = array();
+			$this -> name = $name;
 			$this -> fill();
 		}
 		
 		public function fill(){
 			for($i = 0; $i < 7; $i++){
-				$pion = new Pion();
-				$pions[$i] = $pion;
+				$pions[$i] = new Pion();
 			}
 		}
 	}

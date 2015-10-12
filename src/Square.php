@@ -1,6 +1,6 @@
 <?php
-	class Case {
-		private $pion;
+	class Square {
+		var $pion;
 		
 		function __construct(){
 			$this -> pion = 0;
