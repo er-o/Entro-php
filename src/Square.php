@@ -6,12 +6,16 @@
 			$this -> pion = 0;
 		}
 		
-		public function setCase($valeur){
-			$this -> pion = $valeur;
+		public function setCase($pion){
+			$this -> pion = $pion;
 		}
 		
 		public function setEmpty(){
-			$this -> pion = 0;
+			$this -> pion = null;
+		}
+
+		public function toString(){
+			return $this -> pion;
 		}
 	}
 ?>

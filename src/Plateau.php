@@ -15,8 +15,8 @@
 		
 		//creation du plateau
 		public function fill(){
-			for($i = 0; $i < Plateau::NB_LIGNES;$i++){
-				for($k = 0; $k < Plateau::NB_COLONNES;$k++){
+			for($i = 0; $i < self::NB_LIGNES;$i++){
+				for($k = 0; $k < self::NB_COLONNES;$k++){
 					$this -> cases[$i][$k] = new Square();
 				}
 			}

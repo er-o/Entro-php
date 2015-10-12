@@ -8,4 +8,9 @@
 	echo "<br />";
 	$partie = new Game($j1, $j2);
 	echo "<br /> test";
+
+
+
+	$pion = new Pion($j1);
+	echo "<br />".$pion -> toString();
 ?>

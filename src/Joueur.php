@@ -13,7 +13,7 @@
 		
 		public function fill(){
 			for($i = 0; $i < 7; $i++){
-				$pions[$i] = new Pion();
+				$pions[$i] = new Pion($this);
 			}
 		}
 
