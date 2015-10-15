@@ -8,12 +8,21 @@
 		
 		var $plateau;
 		
-		function __construct($joueur1, $joueur2){
+		function __construct($joueur1, $joueur2, $r_plateau){
 			$this -> joueur1 = $joueur1;
 			$this -> joueur2 = $joueur2;
 
-			$this -> plateau = new Plateau();
+			$this -> plateau = $r_plateau;
 		}
+
+
+		public function getPlateau() {
+			return $plateau;
+		}
+
+
+
+
 	}
 
 ?>
