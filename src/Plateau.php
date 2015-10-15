@@ -1,4 +1,6 @@
 <?php
+
+
 	require 'Square.php';
 
 	class Plateau {
@@ -12,6 +14,14 @@
 			$this -> fill(new Joueur("null")); //on remplit le plateau
 		}
 		
+		public function getCases() {
+			return $this -> cases;
+		}
+
+		public function setCases($r_case) {
+			$this -> cases = $r_case;
+		}
+
 		//creation du plateau
 		public function fill($joueur){
 			for($i = 0; $i < self::NB_LIGNES;$i++){
