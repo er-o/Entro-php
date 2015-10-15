@@ -4,8 +4,11 @@
 
 	require "Game.php";
 	
-	echo ($_SESSION["j1"].toString());
-	echo ($_SESSION["j2"].toString());
+	$j1 = $_SESSION["j1"];
+	$j2 = $_SESSION["j2"];
+
+	echo $j1.toString();
+
 
 	if($_SESSION["plateau"] == null) {
 		$plateau = new Plateau();

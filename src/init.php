@@ -5,7 +5,6 @@
 
 	if(isset($_GET["nom_j1"])) {
 		$_SESSION["j1"] = new Joueur($_GET["nom_j1"]);
-		echo($_GET["nom_j1"]);
 	} else {
 		$_SESSION["j1"] = new Joueur("j1");
 	}
@@ -18,6 +17,6 @@
 
 
 
-	//header('Location: Application.php');
+	header('Location: Application.php');
 
 ?>
