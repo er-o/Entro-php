@@ -6,16 +6,20 @@
 	class Plateau {
 		const NB_COLONNES = 5;
 		const NB_LIGNES = 5;
-		
+
 		var $cases;
 
 		function __construct(){
 			$this -> cases = array();
 			$this -> fill(new Joueur("null")); //on remplit le plateau
 		}
-		
+
 		public function getCases() {
 			return $this -> cases;
+		}
+
+		public function getCase($x, $y) {
+			return $this -> cases[$x, $y];
 		}
 
 		public function setCases($r_case) {
