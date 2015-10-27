@@ -2,7 +2,7 @@
 	session_start();
 
 	include classes/Plateau.php;
-
+//coucou ceci est un test
 	if (isset($_GET['reset']) && $_GET['reset'] == 1)
 	{
 	    session_destroy();
