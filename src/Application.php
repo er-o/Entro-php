@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	include classes/Plateau.php
+	include classes/Plateau.php;
 
 	if (isset($_GET['reset']) && $_GET['reset'] == 1)
 	{
