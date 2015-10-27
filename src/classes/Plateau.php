@@ -19,6 +19,10 @@ session_start();
 			$this -> turn = $this -> j1;
 		}
 
+		public function getTurn() {
+			return $this -> turn;
+		}
+
 		public function init() {
 
 			for ($x = 0; $x < 5; $x++)
@@ -28,28 +32,30 @@ session_start();
 				{
 					if ($x == 0)
 					{
-						cases[$x][$y] = new Pion($this -> j1);
+						$this -> cases[$x][$y] = new Pion($this -> j1, "j1");
 					} else if ($x == 1)
 					{
 						if ($y == 0 || $y == 4)
 						{
-							cases[$x][$y] = new Pion($this -> j1);
+							$this -> cases[$x][$y] = new Pion($this -> j1, "j1");
 						} else
 						{
-							cases[$x][$y] = new Pion(new Joueur("null"));
+							$this -> cases[$x][$y] = new Pion(new Joueur("null"), "null");
 						}
 					} else if ($x == 3)
 					{
 						if($y == 0 || $y == 4)
 						{
-							cases[$x][$y] = new Pion($this -> j2);
+							$this -> cases[$x][$y] = new Pion($this -> j2, "j2");
 						} else
 						{
-							cases[$x][$y] = new Pion(new Joueur("null"));
+							$this -> cases[$x][$y] = new Pion(new Joueur("null"), "null");
 						}
 					} else if ($x == 4)
 					{
-						cases[$x][$y] = new Pion($this -> j2);
+						$this -> cases[$x][$y] = new Pion($this -> j2, "j2");
+					} else {
+						$this -> cases[$x][$y] = new Pion(new Joueur("null"), "null");
 					}
 				}
 			}
@@ -58,16 +64,24 @@ session_start();
 
 
 		public function affichage() {
-			echo '<table style="border: 1px solid black;"><tr>';
+			echo '<table style="border: 1px solid black;">';
 			for ($x = 0; $x < 5; $x++) {
-
+				echo '<tr>';
 				for ($y = 0; $y < 5; $y++) {
+					echo '<td>';
+					if (isset($_SESSION["origin"])) {
+						echo '<a href="Application.php?action=move_target&x='.$x.'&y='.&y.'" id="'.$this -> case[$x][$y] -> getId().'">';
+					} else {
+						echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.&y.'" id="'.$this -> case[$x][$y] -> getId().'">';
+					}
 
-
+					echo '</a>'
+					echo '</td>';
 				}
 
+				echo '</tr>';
 			}
-
+			echo '</table>'
 		}
 
 

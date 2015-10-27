@@ -2,11 +2,13 @@
 	class Pion {
 		var $isole;
 		var $joueur;
+		var $id;
 
 
-		function __construct($joueur){
+		function __construct($joueur, $id){
 			$this -> isole = False;
 			$this -> joueur = $joueur;
+			$this -> id = $id;
 		}
 
 		public function toString(){
@@ -16,6 +18,9 @@
 		public function getJoueur() {
 			return $this -> joueur;
 		}
+		public function getId() {
+					return $this -> id;
+				}
 
 		public function estIsole(){
 			if(!$this -> isole){

@@ -47,7 +47,7 @@
 
 			//Si le plateau n'est pas crée, le créer
 			if(!isset($_SESSION["plateau"])) {
-				$plateau = new Plateau();
+				$plateau = new Plateau($j1, $j2);
 				$plateau -> init();
 
 			} else {
