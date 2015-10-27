@@ -19,7 +19,7 @@
 		}
 
 		public function getCase($x, $y) {
-			return $this -> cases[$x, $y];
+			return $this -> cases[$x][$y];
 		}
 
 		public function setCases($r_case) {

@@ -1,7 +1,8 @@
 <?php
 	session_start();
 
-	include classes/Plateau.php;
+	include "classes/Plateau.php";
+	include "classes/Joueur.php";
 
 	if (isset($_GET['reset']) && $_GET['reset'] == 1)
 	{
@@ -33,10 +34,10 @@
 
 			if(!isset($_SESSION["j2"])) {
 				if(isset($_GET["nomj2"])) {
-					$j1 = new Joueur($_GET["nomj2"]);
+					$j2 = new Joueur($_GET["nomj2"]);
 					$_SESSION["j2"] = $j2;
 				} else {
-					$j1 = new Joueur("joueur 2");
+					$j2 = new Joueur("joueur 2");
 					$_SESSION["j2"] = $j2;
 				}
 			} else {
@@ -53,12 +54,8 @@
 				$plateau = unserialize($_SESSION["plateau"]);
 			}
 
-
-
-			$partie = new Game($_SESSION["j1"], $_SESSION["j2"], $plateau);
-
-
-
 			$_SESSION["plateau"] = $plateau;
 
-?>
+			?>
+		</body>
+</html>
