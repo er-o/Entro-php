@@ -41,7 +41,7 @@
 					$_SESSION["j2"] = $j2;
 				}
 			} else {
-				$j1 = $_SESSION["j2"];
+				$j2 = $_SESSION["j2"];
 			}
 
 
@@ -54,7 +54,10 @@
 				$plateau = unserialize($_SESSION["plateau"]);
 			}
 
+			//$plateau -> affichage();
 			$_SESSION["plateau"] = $plateau;
+
+
 
 			?>
 		</body>
