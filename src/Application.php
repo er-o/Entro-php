@@ -47,7 +47,7 @@
 			//Si le plateau n'est pas crée, le créer
 			if(!isset($_SESSION["plateau"])) {
 				$plateau = new Plateau();
-				$plateau -> reset($_SESSION["j1"], $_SESSION["j2"]);
+				$plateau -> init();
 
 			} else {
 				$plateau = unserialize($_SESSION["plateau"]);

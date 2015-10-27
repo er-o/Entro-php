@@ -13,6 +13,10 @@
 			echo "nom joueur : ".$this -> joueur -> toString()."\t isole : ".$this -> estIsole();
 		}
 
+		public function getJoueur() {
+			return $this -> joueur;
+		}
+
 		public function estIsole(){
 			if(!$this -> isole){
 				return "false";

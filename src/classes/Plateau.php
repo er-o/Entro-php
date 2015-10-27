@@ -1,60 +1,75 @@
 <?php
+session_start();
 
-
-	require 'Square.php';
+	require 'Pion.php';
 
 	class Plateau {
 		const NB_COLONNES = 5;
 		const NB_LIGNES = 5;
 
 		var $cases;
+		var $turn;
+		var $j1;
+		var $j2;
 
-		function __construct(){
+		function __construct($joueur1, $joueur2){
 			$this -> cases = array();
-			$this -> fill(new Joueur("null")); //on remplit le plateau
+			$this -> j1 = $joueur1;
+			$this -> j2 = $joueur2;
+			$this -> turn = $this -> j1;
 		}
 
-		public function getCases() {
-			return $this -> cases;
-		}
+		public function init() {
 
-		public function getCase($x, $y) {
-			return $this -> cases[$x, $y];
-		}
-
-		public function setCases($r_case) {
-			$this -> cases = $r_case;
-		}
-
-		//creation du plateau
-		public function fill($joueur){
-			for($i = 0; $i < self::NB_LIGNES;$i++){
-				for($k = 0; $k < self::NB_COLONNES;$k++){
-					$this -> cases[$i][$k] = new Square(new Pion($joueur));
+			for ($x = 0; $x < 5; $x++)
+			{
+				$this -> cases[$x] = array();
+				for ($y = 0; $y < 5; $y++)
+				{
+					if ($x == 0)
+					{
+						cases[$x][$y] = new Pion($this -> j1);
+					} else if ($x == 1)
+					{
+						if ($y == 0 || $y == 4)
+						{
+							cases[$x][$y] = new Pion($this -> j1);
+						} else
+						{
+							cases[$x][$y] = new Pion(new Joueur("null"));
+						}
+					} else if ($x == 3)
+					{
+						if($y == 0 || $y == 4)
+						{
+							cases[$x][$y] = new Pion($this -> j2);
+						} else
+						{
+							cases[$x][$y] = new Pion(new Joueur("null"));
+						}
+					} else if ($x == 4)
+					{
+						cases[$x][$y] = new Pion($this -> j2);
+					}
 				}
 			}
 		}
 
-		public function reset($j1, $j2){
-			for($k = 0; $k < self::NB_COLONNES;$k++){
-				$this -> cases[0][$k] -> setSquare(new Pion($j1));
+
+
+		public function affichage() {
+			echo '<table style="border: 1px solid black;"><tr>';
+			for ($x = 0; $x < 5; $x++) {
+
+				for ($y = 0; $y < 5; $y++) {
+
+
+				}
+
 			}
-			for($k = 0; $k < self::NB_COLONNES;$k++){
-				$this -> cases[4][$k] -> setSquare(new Pion($j2));
-			}
-			$this -> cases[1][0] -> setSquare(new Pion($j1));
-			$this -> cases[1][4] -> setSquare(new Pion($j1));
-			$this -> cases[3][0] -> setSquare(new Pion($j2));
-			$this -> cases[3][4] -> setSquare(new Pion($j2));
+
 		}
 
-		public function affichage(){
-			for($i = 0; $i < self::NB_LIGNES;$i++){
-				for($k = 0; $k < self::NB_COLONNES;$k++){
-					echo $this -> cases[$i][$k] -> toString()." ";
-				}
-				echo "<br />";
-			}
-		}
+
 	}
 ?>
