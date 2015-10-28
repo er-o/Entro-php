@@ -1,6 +1,5 @@
 <?php
-	require 'Pion.php';
-	
+
 	class Joueur {
 		var $name;
 

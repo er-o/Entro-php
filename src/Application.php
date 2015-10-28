@@ -51,7 +51,7 @@
 				$plateau -> init();
 
 			} else {
-				$plateau = unserialize($_SESSION["plateau"]);
+				$plateau = $_SESSION["plateau"];
 			}
 
 			//$plateau -> affichage();
