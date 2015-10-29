@@ -29,25 +29,25 @@
 			if(!isset($_SESSION["j1"])) {
 				if(isset($_GET["nomj1"])) {
 					$j1 = new Joueur($_GET["nomj1"], "j1");
-					$_SESSION["j1"] = $j1;
+					$_SESSION["j1"] = serialize($j1);
 				} else {
 					$j1 = new Joueur("joueur 1", "j1");
-					$_SESSION["j1"] = $j1;
+					$_SESSION["j1"] = serialize($j1);
 				}
 			} else {
-				$j1 = $_SESSION["j1"];
+				$j1 = unserialize($_SESSION["j1"]);
 			}
 
 			if(!isset($_SESSION["j2"])) {
 				if(isset($_GET["nomj2"])) {
 					$j2 = new Joueur($_GET["nomj2"], "j2");
-					$_SESSION["j2"] = $j2;
+					$_SESSION["j2"] = serialize($j2);
 				} else {
 					$j2 = new Joueur("joueur 2", "j2");
-					$_SESSION["j2"] = $j2;
+					$_SESSION["j2"] = serialize($j2);
 				}
 			} else {
-				$j2 = $_SESSION["j2"];
+				$j2 = unserialize($_SESSION["j2"]);
 			}
 
 
