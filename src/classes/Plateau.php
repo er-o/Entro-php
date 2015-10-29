@@ -60,7 +60,7 @@
 		}
 
 
-
+		//Fonction affichant, mais servant aussi à gérer les coups possibles
 		public function affichage() {
 			echo '<table style="border: 1px solid black;">';
 			for ($x = 0; $x < 5; $x++) {
@@ -68,9 +68,31 @@
 				for ($y = 0; $y < 5; $y++) {
 					echo '<td>';
 					if (isset($_SESSION["origin"])) {
-						echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+						//Mouvement vers la prochaine case
+						$origin = unserialize($_SESSION["origin"]);
+						$target = {$x, $y};
+						//IMPORTANT : FAIRE LA FONCTION MOUVEMENTSPOSSIBLES (code bloqué en attendant)
+						if(in_array($target, $this -> mouvementsPossibles($origin[0], $origin[1]))) {
+							echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+						} else {
+							echo '<a href="Application.php?action=invalid_mouvement&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+						}
+
 					} else {
-						echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+						//Choix du pion à déplacer (en fonction du tour du joueur)
+						if ($this -> getTurn() ->getId() == $this ->cases[$x][$y] ->getId()) {
+							//IMPORTANT : FAIRE LA FONCTION MOUVEMENTPOSSIBLE (code bloqué en attendant)
+							if($this -> mouvementPossible($this ->cases[$x][$y])) {
+								//Pion appartenant au joueur, et bougeable
+								echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+							}	else {
+								//Pion appartenant au joueur mais isolé / imbougeable
+								echo '<a href="Application.php?action=invalid_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+							}
+						} else {
+							//Pion n'appartenant pas au joueur
+							echo '<a href="Application.php?action=invalid_joueur&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+						}
 					}
 
 					echo '</a>';
@@ -80,6 +102,22 @@
 				echo '</tr>';
 			}
 			echo '</table>';
+		}
+
+
+
+		//A FAIRE
+		//param : coord x et y d'un pion
+		//return  : true ou false si le mouvement est possible (ie. pas isolé/pion alié proche)
+		public function mouvementPossible($x, $y) {
+			return false;
+		}
+
+		//A FAIRE
+		//param : coord x et y d'un pion
+		//return : un array avec toutes les positions possibles
+		public function mouvementsPossibles($x, $y) {
+			return array({-1,-1},{-2,-2});
 		}
 
 
