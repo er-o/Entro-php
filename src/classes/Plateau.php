@@ -204,7 +204,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -217,7 +217,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -230,7 +230,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -243,7 +243,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -257,7 +257,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -272,7 +272,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -287,7 +287,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
@@ -302,7 +302,7 @@
 					if ($this->cases[$vert][$hor] -> getId() == "null") {
 						array_push($liste, [$vert, $hor]);
 					} else {
-						$bloquer = true
+						$bloquer = true;
 					}
 				}
 			}
