@@ -127,22 +127,23 @@
 		//param : coord x et y d'un pion
 		//return  : true ou false si le mouvement est possible (ie. pas isolé/pion alié proche)
 		public function mouvementPossible($x, $y) {
+			$j_id = $this -> cases[$x][$y] -> getId();
 			$ret = false;
 			$libre=false;
 			if($x-1 >=0) {
 				if($this->cases[$x -1][$y] != null) {
-					if ($this->cases[$x -1][$y] -> getId() != "null") {
+					if ($this->cases[$x -1][$y] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x -1][$y] -> getId() == "null") {
 						$libre=true;
 					}
 				}
 			}
 			if($x+1 <=4) {
 				if($this->cases[$x +1][$y] != null) {
-					if ($this->cases[$x +1][$y] -> getId() != "null") {
+					if ($this->cases[$x +1][$y] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x +1][$y] -> getId() == "null"){
 						$libre=true;
 					}
 
@@ -150,9 +151,9 @@
 			}
 			if($y-1 >=0) {
 				if($this->cases[$x][$y-1] != null) {
-					if ($this->cases[$x][$y -1] -> getId() != "null") {
+					if ($this->cases[$x][$y -1] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x][$y -1] -> getId() == "null"){
 						$libre=true;
 					}
 
@@ -160,9 +161,9 @@
 			}
 			if($y+1 <=4) {
 				if($this->cases[$x][$y+1] != null) {
-					if ($this->cases[$x][$y +1] -> getId() != "null") {
+					if ($this->cases[$x][$y +1] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x][$y +1] -> getId() == "null"){
 						$libre=true;
 					}
 
@@ -170,16 +171,19 @@
 			}
 			if($x-1 >=0 && $y-1>=0) {
 				if($this->cases[$x-1][$y-1] != null) {
-					if ($this->cases[$x-1][$y-1] -> getId() != "null") {
+					if ($this->cases[$x-1][$y-1] -> getId() == $j_id) {
 						$ret = true;
+					} else if ($this->cases[$x-1][$y-1] -> getId() == "null") {
+						$libre=true;
 					}
+
 				}
 			}
 			if($x+1 <=4 && $y+1<=4) {
 				if($this->cases[$x+1][$y+1] != null) {
-					if ($this->cases[$x+1][$y+1] -> getId() != "null") {
+					if ($this->cases[$x+1][$y+1] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x+1][$y+1] -> getId() == "null"){
 						$libre=true;
 					}
 
@@ -187,9 +191,9 @@
 			}
 			if($x+1 <=4 && $y-1>=0) {
 				if($this->cases[$x+1][$y-1] != null) {
-					if ($this->cases[$x+1][$y-1] -> getId() != "null") {
+					if ($this->cases[$x+1][$y-1] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x+1][$y-1] -> getId() == "null") {
 						$libre=true;
 					}
 
@@ -197,9 +201,9 @@
 			}
 			if($x-1 >=0 && $y+1 <=4) {
 				if($this->cases[$x-1][$y+1] != null) {
-					if ($this->cases[$x-1][$y+1] -> getId() != "null") {
+					if ($this->cases[$x-1][$y+1] -> getId() == $j_id) {
 						$ret = true;
-					} else {
+					} else if ($this->cases[$x-1][$y+1] -> getId() == "null"){
 						$libre=true;
 					}
 
@@ -355,7 +359,118 @@
 		}
 
 
+		public function estIsole($x, $y) {
+			$pion = $this -> cases[$x][$y];
+			$isole = true;
 
+			if($x-1 >=0) {
+				if($this->cases[$x -1][$y] != null) {
+					if ($this->cases[$x -1][$y] -> getId() == $pion -> getId()) {
+					} else 	if ($this->cases[$x -1][$y] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+			if($x+1 <=4) {
+				if($this->cases[$x +1][$y] != null) {
+					if ($this->cases[$x +1][$y] -> getId()  == $pion -> getId()) {
+					} else if ($this->cases[$x +1][$y] -> getId() != "null"){
+						$isole = false;
+					}
+
+				}
+			}
+			if($y-1 >=0) {
+				if($this->cases[$x][$y-1] != null) {
+					if ($this->cases[$x][$y -1] -> getId()  == $pion -> getId()) {
+					} else if ($this->cases[$x][$y-1] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+			if($y+1 <=4) {
+				if($this->cases[$x][$y+1] != null) {
+					if ($this->cases[$x][$y +1] -> getId()  == $pion -> getId()) {
+					} else if ($this->cases[$x +1][$y] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+			if($x-1 >=0 && $y-1>=0) {
+				if($this->cases[$x-1][$y-1] != null) {
+					if ($this->cases[$x-1][$y-1] -> getId()  == $pion -> getId()) {
+					} else if ($this->cases[$x -1][$y-1] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+			if($x+1 <=4 && $y+1<=4) {
+				if($this->cases[$x+1][$y+1] != null) {
+					if ($this->cases[$x+1][$y+1] -> getId()  == $pion -> getId()) {
+					}  else if ($this->cases[$x +1][$y+1] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+			if($x+1 <=4 && $y-1>=0) {
+				if($this->cases[$x+1][$y-1] != null) {
+					if ($this->cases[$x+1][$y-1] -> getId()  == $pion -> getId()) {
+					} else if ($this->cases[$x +1][$y-1] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+			if($x-1 >=0 && $y+1 <=4) {
+				if($this->cases[$x-1][$y+1] != null) {
+					if ($this->cases[$x-1][$y+1] -> getId()  == $pion -> getId()) {
+					}  else if ($this->cases[$x -1][$y+1] -> getId() != "null"){
+						$isole = false;
+					}
+				}
+			}
+
+			return $isole;
+		}
+
+
+
+		public function getListePion($joueur) {
+			switch($joueur) {
+				case $this -> j1 :
+					return $this -> pionsj1;
+				case $this -> j2 :
+					return $this -> pionsj2;
+				default :
+					return null;
+			}
+		}
+
+		public function testVictoire($joueur){
+			$score = array();
+			$mouvements = 0;
+			$isoles = 0;
+
+			$liste = $this -> getListePion($joueur);
+
+			foreach ($liste as $pion) {
+				$coord = $pion -> getCoord();
+				$x = $coord[0];
+				$y = $coord[1];
+
+				$isole = $this -> estIsole($x, $y);
+				$mouvepossible = $this -> mouvementPossible($x, $y);
+
+				if ($isole) {
+					$isoles++;
+				} else if (!$mouvepossible) {
+					$mouvements++;
+				}
+
+			}
+
+			$score = [$isoles, $mouvements];
+			return $score;
+		}
 
 	}
 ?>
