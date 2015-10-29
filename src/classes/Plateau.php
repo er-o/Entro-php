@@ -70,7 +70,7 @@
 					if (isset($_SESSION["origin"])) {
 						//Mouvement vers la prochaine case
 						$origin = unserialize($_SESSION["origin"]);
-						$target = {$x, $y};
+						$target = [$x, $y];
 						//IMPORTANT : FAIRE LA FONCTION MOUVEMENTSPOSSIBLES (code bloqué en attendant)
 						if(in_array($target, $this -> mouvementsPossibles($origin[0], $origin[1]))) {
 							echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
@@ -117,7 +117,7 @@
 		//param : coord x et y d'un pion
 		//return : un array avec toutes les positions possibles
 		public function mouvementsPossibles($x, $y) {
-			return array({-1,-1},{-2,-2});
+			return array([-1,-1],[-2,-2]);
 		}
 
 
