@@ -7,7 +7,7 @@
 	if (isset($_GET['reset']) && $_GET['reset'] == 1)
 	{
 	    session_destroy();
-			if(isset($_GET['nomj1'] && isset($_GET['nomj2'])) {}
+			if(isset($_GET['nomj1']) && isset($_GET['nomj2'])) {
 	    	header('Location: Application.php?nomj1='.$_GET['nomj1'].'&nomj2='.$_GET['nomj2']);
 			} else if (isset($_GET['nomj1'])) {
 				header('Location: Application.php?nomj1='.$_GET['nomj1'].'&nomj2=joueur2');
