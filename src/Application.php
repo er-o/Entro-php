@@ -60,7 +60,6 @@
 				$plateau = unserialize($_SESSION["plateau"]);
 			}
 
-						$plateau -> affichage();
 
 			if(isset($_GET["action"])) {
 				switch($_GET["action"]) {
@@ -99,6 +98,7 @@
 
 
 
+			$plateau -> affichage();
 
 			$_SESSION["plateau"] = serialize($plateau);
 
