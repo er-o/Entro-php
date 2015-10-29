@@ -11,6 +11,7 @@
 		var $j2;
 		var $pionsj1;
 		var $pionsj2;
+		var $partieFini;
 
 		function __construct($joueur1, $joueur2){
 			$this -> cases = array();
@@ -19,6 +20,7 @@
 			$this -> turn = $this -> j1;
 			$this -> pionsj1 = array();
 			$this -> pionsj2 = array();
+			$this -> partieFini = false;
 		}
 
 		public function getTurn() {
@@ -83,40 +85,45 @@
 				for ($y = 0; $y < 5; $y++) {
 					echo '<td>';
 
-
-					if (isset($_SESSION["origin"])) {
-						//Mouvement vers la prochaine case
-						$origin = unserialize($_SESSION["origin"]);
-						$target = [$x, $y];
-						//IMPORTANT : FAIRE LA FONCTION MOUVEMENTSPOSSIBLES (code bloqué en attendant)
-						if(in_array($target, $this -> mouvementsPossibles($origin[0], $origin[1]))) {
-							echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="move">';
-						} else {
-							echo '<a href="Application.php?action=invalid_mouvement&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
-						}
-
-					} else {
-						//Choix du pion à déplacer (en fonction du tour du joueur)
-						if ($this -> getTurn() ->getId() == $this ->cases[$x][$y] ->getId()) {
-							//IMPORTANT : FAIRE LA FONCTION MOUVEMENTPOSSIBLE (code bloqué en attendant)
-							if($this -> mouvementPossible($x, $y)) {
-								//Pion appartenant au joueur, et bougeable
-								echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
-							}	else {
-								//Pion appartenant au joueur mais isolé / imbougeable
-								echo '<a href="Application.php?action=invalid_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+					if (!$this -> partieFini) {
+						if (isset($_SESSION["origin"])) {
+							//Mouvement vers la prochaine case
+							$origin = unserialize($_SESSION["origin"]);
+							$target = [$x, $y];
+							//IMPORTANT : FAIRE LA FONCTION MOUVEMENTSPOSSIBLES (code bloqué en attendant)
+							if(in_array($target, $this -> mouvementsPossibles($origin[0], $origin[1]))) {
+								echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="move">';
+							} else {
+								echo '<a href="Application.php?action=invalid_mouvement&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
 							}
-						} else {
-							//Pion n'appartenant pas au joueur
-							echo '<a href="Application.php?action=invalid_joueur&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
-						}
-					}
 
+						} else {
+							//Choix du pion à déplacer (en fonction du tour du joueur)
+							if ($this -> getTurn() ->getId() == $this ->cases[$x][$y] ->getId()) {
+								//IMPORTANT : FAIRE LA FONCTION MOUVEMENTPOSSIBLE (code bloqué en attendant)
+								if($this -> mouvementPossible($x, $y)) {
+									//Pion appartenant au joueur, et bougeable
+									echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+								}	else {
+									//Pion appartenant au joueur mais isolé / imbougeable
+									echo '<a href="Application.php?action=invalid_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+								}
+							} else {
+								//Pion n'appartenant pas au joueur
+								echo '<a href="Application.php?action=invalid_joueur&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+							}
+						}
+					} else {
+						echo '<a href="#" class="partieFini">';
+					}
 					echo '</a>';
 					echo '</td>';
 				}
 
 				echo '</tr>';
+			}
+			if($this -> partieFini) {
+				echo '<a href="../launcher.html" id="reset">RESET ?</a>';
 			}
 			echo '</table>';
 		}
