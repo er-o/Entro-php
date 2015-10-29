@@ -68,9 +68,9 @@
 				for ($y = 0; $y < 5; $y++) {
 					echo '<td>';
 					if (isset($_SESSION["origin"])) {
-						echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" id="'.$this -> cases[$x][$y] -> getId().'">';
+						echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
 					} else {
-						echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" id="'.$this -> cases[$x][$y] -> getId().'">';
+						echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
 					}
 
 					echo '</a>';
