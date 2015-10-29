@@ -65,7 +65,7 @@
 					{
 						$pion = new Pion($this -> j2, "j2", $x, $y);
 						$this -> cases[$x][$y] = $pion;
-						array_push($this -> pionsj2, $pion); 
+						array_push($this -> pionsj2, $pion);
 					} else {
 						$pion = new Pion(new Joueur("null", "null"), "null", $x, $y);
 						$this -> cases[$x][$y] = $pion;
@@ -82,6 +82,9 @@
 				echo '<tr>';
 				for ($y = 0; $y < 5; $y++) {
 					echo '<td>';
+					//LIGNE A RETIRER (TEST)
+					$_SESSION["origin"] = serialize([0,0]);
+
 					if (isset($_SESSION["origin"])) {
 						//Mouvement vers la prochaine case
 						$origin = unserialize($_SESSION["origin"]);
@@ -195,13 +198,119 @@
 			$vert = $x;
 			$hor = $y;
 
-			while ($vert <=4 || !$bloquer) {
+			while ($vert <4 && !$bloquer) {
 				$vert++;
-
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
 			}
+			$vert = $x;
+			$bloquer = false;
 
+			while ($vert >0 && !$bloquer) {
+				$vert--;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$vert = $x;
+			$bloquer = false;
 
-			return array([-1,-1],[-2,-2]);
+			while ($hor <4 && !$bloquer) {
+				$hor++;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$hor = $y;
+			$bloquer = false;
+
+			while ($hor >0 && !$bloquer) {
+				$hor--;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$hor = $y;
+			$bloquer = false;
+
+			while ($vert<4 && $hor<4 && !$bloquer) {
+				$vert++;
+				$hor++;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$vert = $x;
+			$hor = $y;
+			$bloquer = false;
+
+			while ($vert>0 && $hor>0 && !$bloquer) {
+				$vert--;
+				$hor--;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$vert = $x;
+			$hor = $y;
+			$bloquer = false;
+
+			while ($vert>0 && $hor<4 && !$bloquer) {
+				$vert--;
+				$hor++;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$vert = $x;
+			$hor = $y;
+			$bloquer = false;
+
+			while ($vert<4 && $hor>0 && !$bloquer) {
+				$vert++;
+				$hor--;
+				if($this->cases[$vert][$hor] != null) {
+					if ($this->cases[$vert][$hor] -> getId() == "null") {
+						array_push($liste, [$vert, $hor]);
+					} else {
+						$bloquer = true
+					}
+				}
+			}
+			$vert = $x;
+			$hor = $y;
+			$bloquer = false;
+
+			return $liste;
 		}
 
 
