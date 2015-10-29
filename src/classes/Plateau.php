@@ -82,8 +82,7 @@
 				echo '<tr>';
 				for ($y = 0; $y < 5; $y++) {
 					echo '<td>';
-					//LIGNE A RETIRER (TEST)
-					$_SESSION["origin"] = serialize([0,0]);
+					
 
 					if (isset($_SESSION["origin"])) {
 						//Mouvement vers la prochaine case

@@ -60,6 +60,27 @@
 				$plateau = unserialize($_SESSION["plateau"]);
 			}
 
+
+			if(isset($_GET["action"])) {
+				switch($_GET["action"]) {
+					case 'move_origin' :
+						if(isset($_GET['x']) && isset($_GET['y'])) {
+							$origin = [$_GET['x'], $_GET['y']];
+							$_SESSION['origin'] = serialize($origin);
+						}
+						break;
+					default:
+						break;
+				}
+
+
+			}
+
+
+
+
+
+
 			$plateau -> affichage();
 			$_SESSION["plateau"] = serialize($plateau);
 
