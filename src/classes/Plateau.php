@@ -82,7 +82,7 @@
 						//Choix du pion à déplacer (en fonction du tour du joueur)
 						if ($this -> getTurn() ->getId() == $this ->cases[$x][$y] ->getId()) {
 							//IMPORTANT : FAIRE LA FONCTION MOUVEMENTPOSSIBLE (code bloqué en attendant)
-							if($this -> mouvementPossible($this ->cases[$x][$y])) {
+							if($this -> mouvementPossible($x, $y)) {
 								//Pion appartenant au joueur, et bougeable
 								echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
 							}	else {
