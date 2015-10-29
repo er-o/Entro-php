@@ -348,8 +348,6 @@
 					$tar -> setCoord($x, $y);
 					$this -> cases[$tarx][$tary] = $pion;
 					$this -> cases[$x][$y] = $tar;
-
-					$this -> tourSuivant();
 				}
 			}
 		}
