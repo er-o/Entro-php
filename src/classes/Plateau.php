@@ -365,16 +365,14 @@
 
 			if($x-1 >=0) {
 				if($this->cases[$x -1][$y] != null) {
-					if ($this->cases[$x -1][$y] -> getId() == $pion -> getId()) {
-					} else 	if ($this->cases[$x -1][$y] -> getId() != "null"){
+					if ($this->cases[$x -1][$y] -> getId() != "null"){
 						$isole = false;
 					}
 				}
 			}
 			if($x+1 <=4) {
 				if($this->cases[$x +1][$y] != null) {
-					if ($this->cases[$x +1][$y] -> getId()  == $pion -> getId()) {
-					} else if ($this->cases[$x +1][$y] -> getId() != "null"){
+					if ($this->cases[$x +1][$y] -> getId() != "null"){
 						$isole = false;
 					}
 
@@ -382,48 +380,42 @@
 			}
 			if($y-1 >=0) {
 				if($this->cases[$x][$y-1] != null) {
-					if ($this->cases[$x][$y -1] -> getId()  == $pion -> getId()) {
-					} else if ($this->cases[$x][$y-1] -> getId() != "null"){
+					if ($this->cases[$x][$y-1] -> getId() != "null"){
 						$isole = false;
 					}
 				}
 			}
 			if($y+1 <=4) {
 				if($this->cases[$x][$y+1] != null) {
-					if ($this->cases[$x][$y +1] -> getId()  == $pion -> getId()) {
-					} else if ($this->cases[$x +1][$y] -> getId() != "null"){
+					if ($this->cases[$x +1][$y] -> getId() != "null"){
 						$isole = false;
 					}
 				}
 			}
 			if($x-1 >=0 && $y-1>=0) {
 				if($this->cases[$x-1][$y-1] != null) {
-					if ($this->cases[$x-1][$y-1] -> getId()  == $pion -> getId()) {
-					} else if ($this->cases[$x -1][$y-1] -> getId() != "null"){
+					if ($this->cases[$x -1][$y-1] -> getId() != "null"){
 						$isole = false;
 					}
 				}
 			}
 			if($x+1 <=4 && $y+1<=4) {
 				if($this->cases[$x+1][$y+1] != null) {
-					if ($this->cases[$x+1][$y+1] -> getId()  == $pion -> getId()) {
-					}  else if ($this->cases[$x +1][$y+1] -> getId() != "null"){
+					if ($this->cases[$x +1][$y+1] -> getId() != "null"){
 						$isole = false;
 					}
 				}
 			}
 			if($x+1 <=4 && $y-1>=0) {
 				if($this->cases[$x+1][$y-1] != null) {
-					if ($this->cases[$x+1][$y-1] -> getId()  == $pion -> getId()) {
-					} else if ($this->cases[$x +1][$y-1] -> getId() != "null"){
+					if ($this->cases[$x +1][$y-1] -> getId() != "null"){
 						$isole = false;
 					}
 				}
 			}
 			if($x-1 >=0 && $y+1 <=4) {
 				if($this->cases[$x-1][$y+1] != null) {
-					if ($this->cases[$x-1][$y+1] -> getId()  == $pion -> getId()) {
-					}  else if ($this->cases[$x -1][$y+1] -> getId() != "null"){
+					if ($this->cases[$x -1][$y+1] -> getId() != "null"){
 						$isole = false;
 					}
 				}
