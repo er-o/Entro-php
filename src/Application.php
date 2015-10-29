@@ -117,8 +117,8 @@
 			<div id="joueur1">
 			<?php
 				$scorej1 = $plateau -> getScore($j1);
-				echo $j1 -> getName().' : pions isolés :'.$scorej1[0].'<br />';
-				echo $j1 -> getName().' : pions bloqués :'.$scorej1[1].'<br />';
+				echo $j1.' : pions isolés :'.$scorej1[0].'<br />';
+				echo $j1.' : pions bloqués :'.$scorej1[1].'<br />';
 
 			?>
 			</div>
@@ -127,8 +127,8 @@
 			<div id="joueur2">
 			<?php
 				$scorej2 = $plateau -> getScore($j2);
-				echo $j2 -> getName().' : pions isolés :'.$scorej2[0].'<br />';
-				echo $j2 -> getName().' : pions bloqués :'.$scorej2[1].'<br />';
+				echo $j2.' : pions isolés :'.$scorej2[0].'<br />';
+				echo $j2.' : pions bloqués :'.$scorej2[1].'<br />';
 			?>
 			</div>
 		</div>
