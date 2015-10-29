@@ -60,7 +60,7 @@
 				$plateau = $_SESSION["plateau"];
 			}
 
-			//$plateau -> affichage();
+			$plateau -> affichage();
 			$_SESSION["plateau"] = $plateau;
 
 
