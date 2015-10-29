@@ -38,7 +38,7 @@
 							$this -> cases[$x][$y] = new Pion($this -> j1, "j1");
 						} else
 						{
-							$this -> cases[$x][$y] = new Pion(new Joueur("null"), "null");
+							$this -> cases[$x][$y] = new Pion(new Joueur("null", "null"), "null");
 						}
 					} else if ($x == 3)
 					{
@@ -47,13 +47,13 @@
 							$this -> cases[$x][$y] = new Pion($this -> j2, "j2");
 						} else
 						{
-							$this -> cases[$x][$y] = new Pion(new Joueur("null"), "null");
+							$this -> cases[$x][$y] = new Pion(new Joueur("null", "null"), "null");
 						}
 					} else if ($x == 4)
 					{
 						$this -> cases[$x][$y] = new Pion($this -> j2, "j2");
 					} else {
-						$this -> cases[$x][$y] = new Pion(new Joueur("null"), "null");
+						$this -> cases[$x][$y] = new Pion(new Joueur("null", "null"), "null");
 					}
 				}
 			}
