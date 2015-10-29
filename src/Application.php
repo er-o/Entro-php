@@ -84,6 +84,9 @@
 					case 'invalid_mouvement' :
 							echo 'Vous ne pouvez pas déplacer votre pion ici';
 						break;
+					case 'invalid_origin' :
+							echo 'Impossible de bouger ce pion';
+						break;
 					default:
 						break;
 				}
