@@ -110,7 +110,50 @@
 		//param : coord x et y d'un pion
 		//return  : true ou false si le mouvement est possible (ie. pas isolé/pion alié proche)
 		public function mouvementPossible($x, $y) {
-			return false;
+			$id_j = $this-> cases[$x][$y] -> getId();
+			$ret = false;
+			if($this->cases[$x -1][$y] != null) {
+				if ($this->cases[$x -1][$y] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x +1][$y] != null) {
+				if ($this->cases[$x +1][$y] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x][$y-1] != null) {
+				if ($this->cases[$x][$y -1] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x][$y+1] != null) {
+				if ($this->cases[$x][$y +1] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x-1][$y-1] != null) {
+				if ($this->cases[$x-1][$y-1] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x+1][$y+1] != null) {
+				if ($this->cases[$x+1][$y+1] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x+1][$y-1] != null) {
+				if ($this->cases[$x+1][$y-1] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+			if($this->cases[$x-1][$y+1] != null) {
+				if ($this->cases[$x-1][$y+1] -> getId() == $id_j) {
+					$ret = true;
+				}
+			}
+
+			return $ret;
 		}
 
 		//A FAIRE
