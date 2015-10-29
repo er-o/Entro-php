@@ -99,7 +99,7 @@
 						//Choix du pion à déplacer (en fonction du tour du joueur)
 						if ($this -> getTurn() ->getId() == $this ->cases[$x][$y] ->getId()) {
 							//IMPORTANT : FAIRE LA FONCTION MOUVEMENTPOSSIBLE (code bloqué en attendant)
-							if($this -> mouvementPossible($x, $y) && count($this -> mouvementsPossibles($x, $y))>0) {
+							if($this -> mouvementPossible($x, $y)) {
 								//Pion appartenant au joueur, et bougeable
 								echo '<a href="Application.php?action=move_origin&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
 							}	else {
@@ -128,10 +128,13 @@
 		//return  : true ou false si le mouvement est possible (ie. pas isolé/pion alié proche)
 		public function mouvementPossible($x, $y) {
 			$ret = false;
+			$libre=false;
 			if($x-1 >=0) {
 				if($this->cases[$x -1][$y] != null) {
 					if ($this->cases[$x -1][$y] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
 				}
 			}
@@ -139,21 +142,30 @@
 				if($this->cases[$x +1][$y] != null) {
 					if ($this->cases[$x +1][$y] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
+
 				}
 			}
 			if($y-1 >=0) {
 				if($this->cases[$x][$y-1] != null) {
 					if ($this->cases[$x][$y -1] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
+
 				}
 			}
 			if($y+1 <=4) {
 				if($this->cases[$x][$y+1] != null) {
 					if ($this->cases[$x][$y +1] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
+
 				}
 			}
 			if($x-1 >=0 && $y-1>=0) {
@@ -167,25 +179,34 @@
 				if($this->cases[$x+1][$y+1] != null) {
 					if ($this->cases[$x+1][$y+1] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
+
 				}
 			}
 			if($x+1 <=4 && $y-1>=0) {
 				if($this->cases[$x+1][$y-1] != null) {
 					if ($this->cases[$x+1][$y-1] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
+
 				}
 			}
 			if($x-1 >=0 && $y+1 <=4) {
 				if($this->cases[$x-1][$y+1] != null) {
 					if ($this->cases[$x-1][$y+1] -> getId() != "null") {
 						$ret = true;
+					} else {
+						$libre=true;
 					}
+
 				}
 			}
 
-			return $ret;
+			return ($ret && $libre);
 		}
 
 		//A FAIRE
