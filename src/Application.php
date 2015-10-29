@@ -74,6 +74,8 @@
 							$origin = unserialize($_SESSION['origin']);
 
 							$plateau -> move($origin[0], $origin[1], $_GET['x'], $_GET['y']);
+
+							unset($_SESSION['origin']);
 						}
 						break;
 					default:
