@@ -78,6 +78,12 @@
 							unset($_SESSION['origin']);
 						}
 						break;
+					case 'invalid_joueur' :
+							echo 'Ce n\'est pas votre pion';
+						break;
+					case 'invalid_mouvement' :
+							echo 'Vous ne pouvez pas déplacer votre pion ici';
+						break;
 					default:
 						break;
 				}
