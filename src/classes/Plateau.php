@@ -82,7 +82,7 @@
 				echo '<tr>';
 				for ($y = 0; $y < 5; $y++) {
 					echo '<td>';
-					
+
 
 					if (isset($_SESSION["origin"])) {
 						//Mouvement vers la prochaine case
@@ -311,6 +311,29 @@
 
 			return $liste;
 		}
+
+
+		public function move($x, $y, $tarx, $tary) {
+			$pion = $this -> cases[$x][$y];
+			$tar = $this -> cases[$tarx][$tary];
+			if ($pion -> getId() == $this -> getTurn() -> getId()) {
+				if($tar -> getId() == "null") {
+
+					$pion -> setCoord($tarx, $tary);
+					$tar -> setCoord($x, $y);
+					$this -> cases[$tarx][$tary] = $pion;
+					$this -> cases[$x][$y] = $tar;
+
+					$this -> tourSuivant();
+				}
+			}
+		}
+
+		public function tourSuivant() {
+			$this -> turn = ($this-> turn == $j1) ? $j2 : $j3 ;
+		}
+
+
 
 
 	}

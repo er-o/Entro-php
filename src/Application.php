@@ -69,6 +69,13 @@
 							$_SESSION['origin'] = serialize($origin);
 						}
 						break;
+					case 'move_target' :
+						if(isset($_GET['x']) && isset($_GET['y'])) {
+							$origin = unserialize($_SESSION['origin']);
+
+							$plateau -> move($origin[0], $origin[1], $_GET['x'], $_GET['y']);
+						}
+						break;
 					default:
 						break;
 				}

@@ -26,6 +26,9 @@
 		public function getCoord() {
 			return $this -> coord;
 		}
+		public function setCoord($x, $y) {
+			$this -> coord = [$x, $y];
+		}
 
 		public function estIsole(){
 			if(!$this -> isole){
