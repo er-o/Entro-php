@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 	require 'Pion.php';
 
 	class Plateau {
