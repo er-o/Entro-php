@@ -387,7 +387,7 @@
 			}
 			if($y+1 <=4) {
 				if($this->cases[$x][$y+1] != null) {
-					if ($this->cases[$x +1][$y] -> getId() != "null"){
+					if ($this->cases[$x][$y+1] -> getId() != "null"){
 						$isole = false;
 					}
 				}
