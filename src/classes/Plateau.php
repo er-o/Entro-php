@@ -330,7 +330,7 @@
 		}
 
 		public function tourSuivant() {
-			$this -> turn = ($this-> turn == $j1) ? $j2 : $j1 ;
+			$this -> turn = ($this-> turn == $this -> j1) ? $this -> j2 : $this -> j1 ;
 		}
 
 
