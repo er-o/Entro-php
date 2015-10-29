@@ -3,12 +3,14 @@
 		var $isole;
 		var $joueur;
 		var $id;
+		var $coord;
 
 
-		function __construct($joueur, $id){
+		function __construct($joueur, $id, $x, $y){
 			$this -> isole = False;
 			$this -> joueur = $joueur;
 			$this -> id = $id;
+			$this -> coord = [$x, $y];
 		}
 
 		public function toString(){
@@ -19,8 +21,11 @@
 			return $this -> joueur;
 		}
 		public function getId() {
-					return $this -> id;
-				}
+			return $this -> id;
+		}
+		public function getCoord() {
+			return $this -> coord;
+		}
 
 		public function estIsole(){
 			if(!$this -> isole){

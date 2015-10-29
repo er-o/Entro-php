@@ -9,12 +9,16 @@
 		var $turn;
 		var $j1;
 		var $j2;
+		var $pionsj1;
+		var $pionsj2;
 
 		function __construct($joueur1, $joueur2){
 			$this -> cases = array();
 			$this -> j1 = $joueur1;
 			$this -> j2 = $joueur2;
 			$this -> turn = $this -> j1;
+			$this -> pionsj1 = array();
+			$this -> pionsj2 = array();
 		}
 
 		public function getTurn() {
@@ -30,30 +34,41 @@
 				{
 					if ($x == 0)
 					{
-						$this -> cases[$x][$y] = new Pion($this -> j1, "j1");
+						$pion = new Pion($this -> j1, "j1", $x, $y);
+						$this -> cases[$x][$y] = $pion;
+						array_push($this -> pionsj1, $pion);
 					} else if ($x == 1)
 					{
 						if ($y == 0 || $y == 4)
 						{
-							$this -> cases[$x][$y] = new Pion($this -> j1, "j1");
+							$pion = new Pion($this -> j1, "j1", $x, $y);
+							$this -> cases[$x][$y] = $pion;
+							array_push($this -> pionsj1, $pion);
 						} else
 						{
-							$this -> cases[$x][$y] = new Pion(new Joueur("null", "null"), "null");
+							$pion = new Pion(new Joueur("null", "null"), "null", $x, $y);
+							$this -> cases[$x][$y] = $pion;
 						}
 					} else if ($x == 3)
 					{
 						if($y == 0 || $y == 4)
 						{
-							$this -> cases[$x][$y] = new Pion($this -> j2, "j2");
+							$pion = new Pion($this -> j2, "j2", $x, $y);
+							$this -> cases[$x][$y] = $pion;
+							array_push($this -> pionsj2, $pion);
 						} else
 						{
-							$this -> cases[$x][$y] = new Pion(new Joueur("null", "null"), "null");
+							$pion = new Pion(new Joueur("null", "null"), "null", $x, $y);
+							$this -> cases[$x][$y] = $pion;
 						}
 					} else if ($x == 4)
 					{
-						$this -> cases[$x][$y] = new Pion($this -> j2, "j2");
+						$pion = new Pion($this -> j2, "j2", $x, $y);
+						$this -> cases[$x][$y] = $pion;
+						array_push($this -> pionsj2, $pion); 
 					} else {
-						$this -> cases[$x][$y] = new Pion(new Joueur("null", "null"), "null");
+						$pion = new Pion(new Joueur("null", "null"), "null", $x, $y);
+						$this -> cases[$x][$y] = $pion;
 					}
 				}
 			}
@@ -110,60 +125,59 @@
 		//param : coord x et y d'un pion
 		//return  : true ou false si le mouvement est possible (ie. pas isolé/pion alié proche)
 		public function mouvementPossible($x, $y) {
-			$id_j = $this-> cases[$x][$y] -> getId();
 			$ret = false;
 			if($x-1 >=0) {
 				if($this->cases[$x -1][$y] != null) {
-					if ($this->cases[$x -1][$y] -> getId() == $id_j) {
+					if ($this->cases[$x -1][$y] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($x+1 <=4) {
 				if($this->cases[$x +1][$y] != null) {
-					if ($this->cases[$x +1][$y] -> getId() == $id_j) {
+					if ($this->cases[$x +1][$y] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($y-1 >=0) {
 				if($this->cases[$x][$y-1] != null) {
-					if ($this->cases[$x][$y -1] -> getId() == $id_j) {
+					if ($this->cases[$x][$y -1] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($y+1 <=4) {
 				if($this->cases[$x][$y+1] != null) {
-					if ($this->cases[$x][$y +1] -> getId() == $id_j) {
+					if ($this->cases[$x][$y +1] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($x-1 >=0 && $y-1>=0) {
 				if($this->cases[$x-1][$y-1] != null) {
-					if ($this->cases[$x-1][$y-1] -> getId() == $id_j) {
+					if ($this->cases[$x-1][$y-1] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($x+1 <=4 && $y+1<=4) {
 				if($this->cases[$x+1][$y+1] != null) {
-					if ($this->cases[$x+1][$y+1] -> getId() == $id_j) {
+					if ($this->cases[$x+1][$y+1] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($x+1 <=4 && $y-1>=0) {
 				if($this->cases[$x+1][$y-1] != null) {
-					if ($this->cases[$x+1][$y-1] -> getId() == $id_j) {
+					if ($this->cases[$x+1][$y-1] -> getId() != "null") {
 						$ret = true;
 					}
 				}
 			}
 			if($x-1 >=0 && $y+1 <=4) {
 				if($this->cases[$x-1][$y+1] != null) {
-					if ($this->cases[$x-1][$y+1] -> getId() == $id_j) {
+					if ($this->cases[$x-1][$y+1] -> getId() != "null") {
 						$ret = true;
 					}
 				}
@@ -176,6 +190,17 @@
 		//param : coord x et y d'un pion
 		//return : un array avec toutes les positions possibles
 		public function mouvementsPossibles($x, $y) {
+			$liste = array();
+			$bloquer = false;
+			$vert = $x;
+			$hor = $y;
+
+			while ($vert <=4 || !$bloquer) {
+				$vert++;
+
+			}
+
+
 			return array([-1,-1],[-2,-2]);
 		}
 
