@@ -57,11 +57,11 @@
 				$plateau -> init();
 
 			} else {
-				$plateau = $_SESSION["plateau"];
+				$plateau = unserialize($_SESSION["plateau"]);
 			}
 
 			$plateau -> affichage();
-			$_SESSION["plateau"] = $plateau;
+			$_SESSION["plateau"] = serialize($plateau);
 
 
 
