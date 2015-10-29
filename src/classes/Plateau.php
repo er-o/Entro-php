@@ -445,7 +445,7 @@
 			}
 		}
 
-		public function testVictoire($joueur){
+		public function getScore($joueur){
 			$score = array();
 			$mouvements = 0;
 			$isoles = 0;

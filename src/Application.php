@@ -23,7 +23,7 @@
 			<link href="style/style.css" type="text/css" rel="stylesheet" media="all" />
 	</head>
 	<body>
-
+		<div id="info">
 		<?php
 			//Création ou récupération des joueurs
 			if(!isset($_SESSION["j1"])) {
@@ -93,17 +93,33 @@
 
 
 			}
+			?>
+		</div>
 
-
-
-
-
+		<div id="plateau">
+			<?php
 			$plateau -> affichage();
 
 			$_SESSION["plateau"] = serialize($plateau);
-
-
+			?>
+		<div id="score">
+			<div id="joueur1">
+			<?php
+				$scorej1 = $plateau -> getScore($j1);
+				echo 'pions isolés :'.$scorej1[0].'\n';
+				echo 'pions bloqués :'.$scorej1[1].'\n';
 
 			?>
+			</div>
+
+
+			<div id="joueur2">
+			<?php
+				$scorej2 = $plateau -> getScore($j2);
+				echo 'pions isolés :'.$scorej2[0].'\n';
+				echo 'pions bloqués :'.$scorej2[1].'\n';
+			?>
+			</div>
+		</div>
 		</body>
 </html>
