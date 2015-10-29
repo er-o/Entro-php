@@ -82,6 +82,7 @@
 							$score = $plateau -> getScore($joueur);
 							if($score[0]==0 && $score[1] == 7) {
 								echo $joueur -> toString().' à gagner !';
+								$plateau -> victoire();
 								//FIN DE LA PARTIE, JOUEUR A GAGNE
 							} else {
 								$plateau -> tourSuivant();

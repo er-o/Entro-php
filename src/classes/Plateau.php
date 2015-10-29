@@ -77,6 +77,10 @@
 		}
 
 
+		public function victoire() {
+			$this -> partieFini = true;
+		}
+
 		//Fonction affichant, mais servant aussi à gérer les coups possibles
 		public function affichage() {
 			echo '<table style="border: 1px solid black;">';
