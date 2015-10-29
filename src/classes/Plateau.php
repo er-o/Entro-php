@@ -91,7 +91,7 @@
 						$target = [$x, $y];
 						//IMPORTANT : FAIRE LA FONCTION MOUVEMENTSPOSSIBLES (code bloqué en attendant)
 						if(in_array($target, $this -> mouvementsPossibles($origin[0], $origin[1]))) {
-							echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
+							echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="move">';
 						} else {
 							echo '<a href="Application.php?action=invalid_mouvement&x='.$x.'&y='.$y.'" class="'.$this -> cases[$x][$y] -> getId().'">';
 						}
