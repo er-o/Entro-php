@@ -127,7 +127,7 @@
 				echo '</tr>';
 			}
 			if($this -> partieFini) {
-				echo '<a href="../launcher.html" id="reset">RESET ?</a>';
+				echo '<a href="../launcher.html" id="reset"><button>RESET?</button></a>';
 			}
 			echo '</table>';
 		}
