@@ -81,7 +81,7 @@
 
 							$score = $plateau -> getScore($joueur);
 							if($score[0]==0 && $score[1] == 7) {
-								echo $joueur.' à gagner !';
+								echo $joueur -> toString().' à gagner !';
 								//FIN DE LA PARTIE, JOUEUR A GAGNE
 							} else {
 								$plateau -> tourSuivant();
@@ -117,8 +117,8 @@
 			<div id="joueur1">
 			<?php
 				$scorej1 = $plateau -> getScore($j1);
-				echo $j1.' : pions isolés :'.$scorej1[0].'<br />';
-				echo $j1.' : pions bloqués :'.$scorej1[1].'<br />';
+				echo $j1 -> toString().' : pions isolés :'.$scorej1[0].'<br />';
+				echo $j1 -> toString().' : pions bloqués :'.$scorej1[1].'<br />';
 
 			?>
 			</div>
@@ -127,8 +127,8 @@
 			<div id="joueur2">
 			<?php
 				$scorej2 = $plateau -> getScore($j2);
-				echo $j2.' : pions isolés :'.$scorej2[0].'<br />';
-				echo $j2.' : pions bloqués :'.$scorej2[1].'<br />';
+				echo $j2 -> toString().' : pions isolés :'.$scorej2[0].'<br />';
+				echo $j2 -> toString().' : pions bloqués :'.$scorej2[1].'<br />';
 			?>
 			</div>
 		</div>
