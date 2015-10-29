@@ -112,43 +112,43 @@
 		public function mouvementPossible($x, $y) {
 			$id_j = $this-> cases[$x][$y] -> getId();
 			$ret = false;
-			if($this->cases[$x -1][$y] != null) {
-				if ($this->cases[$x -1][$y] -> getId() == $id_j) {
+			if($this->cases[(int)$x -1][(int)$y] != null) {
+				if ($this->cases[(int)$x -1][(int)$y] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x +1][$y] != null) {
-				if ($this->cases[$x +1][$y] -> getId() == $id_j) {
+			if($this->cases[(int)$x +1][(int)$y] != null) {
+				if ($this->cases[(int)$x +1][(int)$y] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x][$y-1] != null) {
-				if ($this->cases[$x][$y -1] -> getId() == $id_j) {
+			if($this->cases[(int)$x][(int)$y-1] != null) {
+				if ($this->cases[(int)$x][(int)$y -1] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x][$y+1] != null) {
-				if ($this->cases[$x][$y +1] -> getId() == $id_j) {
+			if($this->cases[(int)$x][(int)$y+1] != null) {
+				if ($this->cases[(int)$x][(int)$y +1] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x-1][$y-1] != null) {
-				if ($this->cases[$x-1][$y-1] -> getId() == $id_j) {
+			if($this->cases[(int)$x-1][(int)$y-1] != null) {
+				if ($this->cases[(int)$x-1][(int)$y-1] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x+1][$y+1] != null) {
-				if ($this->cases[$x+1][$y+1] -> getId() == $id_j) {
+			if($this->cases[(int)$x+1][(int)$y+1] != null) {
+				if ($this->cases[(int)$x+1][(int)$y+1] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x+1][$y-1] != null) {
-				if ($this->cases[$x+1][$y-1] -> getId() == $id_j) {
+			if($this->cases[(int)$x+1][(int)$y-1] != null) {
+				if ($this->cases[(int)$x+1][(int)$y-1] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
-			if($this->cases[$x-1][$y+1] != null) {
-				if ($this->cases[$x-1][$y+1] -> getId() == $id_j) {
+			if($this->cases[(int)$x-1][(int)$y+1] != null) {
+				if ($this->cases[(int)$x-1][(int)$y+1] -> getId() == $id_j) {
 					$ret = true;
 				}
 			}
