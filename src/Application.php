@@ -144,7 +144,8 @@
 
 
 				if (isset($_SESSION['origin'])) {
-					echo '<a href="Application.php?action="relacher_origin"><button>Relacher le pion</button></a>';
+
+					echo '<a href="Application.php?action=relacher_origin"><button>Relacher le pion</button></a>';
 				}
 			?>
 			<a href="../launcher.html" id="reset"><button>RESET?</button></a>
