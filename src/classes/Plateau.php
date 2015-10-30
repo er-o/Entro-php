@@ -143,7 +143,7 @@
 			$libre=false;
 
 			for($hor = $x-1; $hor <= $x+1; $hor++) {
-				if ($hor >= 0 && $hor <= 4 $$ $hor != $x) {
+				if ($hor >= 0 && $hor <= 4 && $hor != $x) {
 
 					for($vert = $y-1; $vert <=$y+1; $vert++) {
 						if($vert >=0 && $vert <=4 && $vert != $y) {
@@ -389,7 +389,7 @@
 			$isole = true;
 
 			for($hor = $x-1; $hor <= $x+1; $hor++) {
-				if ($hor >= 0 && $hor <= 4 $$ $hor != $x) {
+				if ($hor >= 0 && $hor <= 4 && $hor != $x) {
 
 					for($vert = $y-1; $vert <=$y+1; $vert++) {
 						if($vert >=0 && $vert <=4 && $vert != $y) {
