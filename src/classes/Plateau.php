@@ -160,83 +160,6 @@
 					}
 				}
 			}
-
-			/*
-
-			if($x-1 >=0) {
-
-			}
-			if($x+1 <=4) {
-				if($this->cases[$x +1][$y] != null) {
-					if ($this->cases[$x +1][$y] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x +1][$y] -> getId() == "null"){
-						$libre=true;
-					}
-
-				}
-			}
-			if($y-1 >=0) {
-				if($this->cases[$x][$y-1] != null) {
-					if ($this->cases[$x][$y -1] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x][$y -1] -> getId() == "null"){
-						$libre=true;
-					}
-
-				}
-			}
-			if($y+1 <=4) {
-				if($this->cases[$x][$y+1] != null) {
-					if ($this->cases[$x][$y +1] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x][$y +1] -> getId() == "null"){
-						$libre=true;
-					}
-
-				}
-			}
-			if($x-1 >=0 && $y-1>=0) {
-				if($this->cases[$x-1][$y-1] != null) {
-					if ($this->cases[$x-1][$y-1] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x-1][$y-1] -> getId() == "null") {
-						$libre=true;
-					}
-
-				}
-			}
-			if($x+1 <=4 && $y+1<=4) {
-				if($this->cases[$x+1][$y+1] != null) {
-					if ($this->cases[$x+1][$y+1] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x+1][$y+1] -> getId() == "null"){
-						$libre=true;
-					}
-
-				}
-			}
-			if($x+1 <=4 && $y-1>=0) {
-				if($this->cases[$x+1][$y-1] != null) {
-					if ($this->cases[$x+1][$y-1] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x+1][$y-1] -> getId() == "null") {
-						$libre=true;
-					}
-
-				}
-			}
-			if($x-1 >=0 && $y+1 <=4) {
-				if($this->cases[$x-1][$y+1] != null) {
-					if ($this->cases[$x-1][$y+1] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x-1][$y+1] -> getId() == "null"){
-						$libre=true;
-					}
-
-				}
-			}*/
-
 			return ($ret && $libre);
 		}
 
@@ -404,61 +327,6 @@
 				}
 			}
 
-			/*
-			if($x-1 >=0) {
-
-			}
-			if($x+1 <=4) {
-				if($this->cases[$x +1][$y] != null) {
-					if ($this->cases[$x +1][$y] -> getId() != "null"){
-						$isole = false;
-					}
-
-				}
-			}
-			if($y-1 >=0) {
-				if($this->cases[$x][$y-1] != null) {
-					if ($this->cases[$x][$y-1] -> getId() != "null"){
-						$isole = false;
-					}
-				}
-			}
-			if($y+1 <=4) {
-				if($this->cases[$x][$y+1] != null) {
-					if ($this->cases[$x][$y+1] -> getId() != "null"){
-						$isole = false;
-					}
-				}
-			}
-			if($x-1 >=0 && $y-1>=0) {
-				if($this->cases[$x-1][$y-1] != null) {
-					if ($this->cases[$x -1][$y-1] -> getId() != "null"){
-						$isole = false;
-					}
-				}
-			}
-			if($x+1 <=4 && $y+1<=4) {
-				if($this->cases[$x+1][$y+1] != null) {
-					if ($this->cases[$x +1][$y+1] -> getId() != "null"){
-						$isole = false;
-					}
-				}
-			}
-			if($x+1 <=4 && $y-1>=0) {
-				if($this->cases[$x+1][$y-1] != null) {
-					if ($this->cases[$x +1][$y-1] -> getId() != "null"){
-						$isole = false;
-					}
-				}
-			}
-			if($x-1 >=0 && $y+1 <=4) {
-				if($this->cases[$x-1][$y+1] != null) {
-					if ($this->cases[$x -1][$y+1] -> getId() != "null"){
-						$isole = false;
-					}
-				}
-			}*/
-
 			return $isole;
 		}
 
@@ -492,7 +360,8 @@
 
 				if ($isole) {
 					$isoles++;
-				} else if (!$mouvepossible) {
+				}
+				if (!$mouvepossible) {
 					$mouvements++;
 				}
 

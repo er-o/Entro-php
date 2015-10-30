@@ -67,7 +67,6 @@
 				$log = unserialize($_SESSION['log']);
 			}
 
-			$log = "C'est au tour de ".$plateau -> getTurn() -> toString()."<br/>".$log;
 
 			$testJouabilite = $plateau -> getScore($plateau -> getTurn());
 			if($testJouabilite[1]==7 && $testJouabilite[0]!=0) {
@@ -101,6 +100,7 @@
 								//FIN DE LA PARTIE, JOUEUR A GAGNE
 							} else {
 								$plateau -> tourSuivant();
+								$log = "C'est au tour de ".$plateau -> getTurn() -> toString()."<br/>".$log;
 							}
 
 						}
