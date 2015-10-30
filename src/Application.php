@@ -62,7 +62,7 @@
 
 
 			if(!isset($_SESSION['log'])) {
-				$log = "Nouvelle partie commencée<br />"
+				$log = "Nouvelle partie commencée<br />";
 			} else {
 				$log = unserialize($_SESSION['log']);
 			}
