@@ -91,7 +91,7 @@
 
 							$score = $plateau -> getScore($joueur);
 							if($score[0]==0 && $score[1] == 7) {
-								echo $joueur -> toString().' à gagner !';
+								$log =  $joueur -> toString().' à gagner !<br/>'.$log;
 								$plateau -> victoire();
 								//FIN DE LA PARTIE, JOUEUR A GAGNE
 							} else {
@@ -104,7 +104,7 @@
 									$log = $plateau -> getTurn() -> toString().' a tous ses pions bloqués, mais certains isolés.Son tour est passé <br/>'.$log;
 									$plateau -> tourSuivant();
 								} else if($testJouabilite[1]==7 && $testJouabilite[0] == 0){
-										echo $nouvJoueur -> toString().' à gagner !';
+										$log = $nouvJoueur -> toString().' à gagner !<br/>'.$log;
 										$plateau -> victoire();
 								}
 							}
