@@ -120,6 +120,9 @@
 					case 'invalid_origin' :
 							$log = 'Impossible de bouger ce pion<br/>'.$log;
 						break;
+					case 'relacher_origin' :
+							unset($_SESSION['origin']);
+						break;
 					default:
 						break;
 				}
@@ -138,9 +141,14 @@
 				$plateau -> affichage();
 
 				$_SESSION["plateau"] = serialize($plateau);
-				
+
+
+				if (isset($_SESSION['origin'])) {
+					echo '<a href="Application.php?action="relacher_origin"><button>Relacher le pion</button></a>';
+				}
 			?>
 			<a href="../launcher.html" id="reset"><button>RESET?</button></a>
+
 		<div id="score">
 			<div id="joueur1">
 			<?php
