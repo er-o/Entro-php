@@ -135,9 +135,9 @@
 
 		<div id="plateau">
 			<?php
-			$plateau -> affichage();
+				$plateau -> affichage();
 
-			$_SESSION["plateau"] = serialize($plateau);
+				$_SESSION["plateau"] = serialize($plateau);
 			?>
 		<div id="score">
 			<div id="joueur1">

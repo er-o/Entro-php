@@ -19,3 +19,21 @@ a {
 .partieFini {
   background-color: yellow;
 }
+#info{
+  position:fixed;
+  width: 30%;
+  left:50%;
+  top:0;
+}
+#plateau{
+  position:fixed;
+  width:50%;
+  left:0;
+  top:0;
+}
+#score{
+  position:fixed;
+  top:0;
+  width:20%;
+  left:80%;
+}
