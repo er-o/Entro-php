@@ -141,14 +141,30 @@
 			$j_id = $this -> cases[$x][$y] -> getId();
 			$ret = false;
 			$libre=false;
-			if($x-1 >=0) {
-				if($this->cases[$x -1][$y] != null) {
-					if ($this->cases[$x -1][$y] -> getId() == $j_id) {
-						$ret = true;
-					} else if ($this->cases[$x -1][$y] -> getId() == "null") {
-						$libre=true;
+
+			for($hor = $x-1; $hor <= $x+1; $hor++) {
+				if ($hor >= 0 && $hor <= 4 $$ $hor != $x) {
+
+					for($vert = $y-1; $vert <=$y+1; $vert++) {
+						if($vert >=0 && $vert <=4 && $vert != $y) {
+
+
+							if($this->cases[$hor][$vert] != null) {
+								if ($this->cases[$hor][$vert] -> getId() == $j_id) {
+									$ret = true;
+								} else if ($this->cases[$hor][$vert] -> getId() == "null") {
+									$libre=true;
+								}
+							}
+						}
 					}
 				}
+			}
+
+			/*
+
+			if($x-1 >=0) {
+
 			}
 			if($x+1 <=4) {
 				if($this->cases[$x +1][$y] != null) {
@@ -219,7 +235,7 @@
 					}
 
 				}
-			}
+			}*/
 
 			return ($ret && $libre);
 		}
@@ -372,12 +388,25 @@
 			$pion = $this -> cases[$x][$y];
 			$isole = true;
 
-			if($x-1 >=0) {
-				if($this->cases[$x -1][$y] != null) {
-					if ($this->cases[$x -1][$y] -> getId() != "null"){
-						$isole = false;
+			for($hor = $x-1; $hor <= $x+1; $hor++) {
+				if ($hor >= 0 && $hor <= 4 $$ $hor != $x) {
+
+					for($vert = $y-1; $vert <=$y+1; $vert++) {
+						if($vert >=0 && $vert <=4 && $vert != $y) {
+
+							if($this->cases[$hor][$vert] != null) {
+								if ($this->cases[$hor][$vert] -> getId() != "null"){
+									$isole = false;
+								}
+							}
+						}
 					}
 				}
+			}
+
+			/*
+			if($x-1 >=0) {
+
 			}
 			if($x+1 <=4) {
 				if($this->cases[$x +1][$y] != null) {
@@ -428,7 +457,7 @@
 						$isole = false;
 					}
 				}
-			}
+			}*/
 
 			return $isole;
 		}

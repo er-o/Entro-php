@@ -61,6 +61,21 @@
 			}
 
 
+			if(!isset($_SESSION['log'])) {
+				$log = "Nouvelle partie commencée<br />"
+			} else {
+				$log = unserialize($_SESSION['log']);
+			}
+
+			$log = "C'est au tour de ".$plateau -> getTurn() -> toString()."<br/>".$log;
+
+			$testJouabilite = $plateau -> getScore($plateau -> getTurn());
+			if($testJouabilite[1]==7 && $testJouabilite[0]!=0) {
+				$log = $plateau -> getTurn() -> toString().' a tous ses pions bloqués, mais certains isolés.Son tour est passé <br/>'.$log;
+				$plateau -> tourSuivant();
+			}
+
+
 			if(isset($_GET["action"])) {
 				switch($_GET["action"]) {
 					case 'move_origin' :
@@ -91,13 +106,13 @@
 						}
 						break;
 					case 'invalid_joueur' :
-							echo 'Ce n\'est pas votre pion';
+							$log = 'Ce n\'est pas votre pion <br/>'.$log;
 						break;
 					case 'invalid_mouvement' :
-							echo 'Vous ne pouvez pas déplacer votre pion ici';
+							$log = 'Vous ne pouvez pas déplacer votre pion ici<br/>'.$log;
 						break;
 					case 'invalid_origin' :
-							echo 'Impossible de bouger ce pion';
+							$log = 'Impossible de bouger ce pion<br/>'.$log;
 						break;
 					default:
 						break;
@@ -105,6 +120,10 @@
 
 
 			}
+
+			echo $log;
+
+			$_SESSION['log'] = serialize($log);
 			?>
 		</div>
 
