@@ -143,19 +143,19 @@
 			$libre=false;
 
 			for($hor = $x-1; $hor <= $x+1; $hor++) {
-				if ($hor >= 0 && $hor <= 4 && $hor != $x) {
+				if ($hor >= 0 && $hor <= 4) {
 
 					for($vert = $y-1; $vert <=$y+1; $vert++) {
-						if($vert >=0 && $vert <=4 && $vert != $y) {
+						if($vert >=0 && $vert <=4 && !($vert == $y && $hor == $x)) {
 
-
-							if($this->cases[$hor][$vert] != null) {
-								if ($this->cases[$hor][$vert] -> getId() == $j_id) {
+							if($this-> cases[$hor][$vert] != null) {
+								if ($this-> cases[$hor][$vert] -> getId() == $j_id) {
 									$ret = true;
-								} else if ($this->cases[$hor][$vert] -> getId() == "null") {
+								} else if ($this-> cases[$hor][$vert] -> getId() == "null") {
 									$libre=true;
 								}
 							}
+
 						}
 					}
 				}
@@ -389,10 +389,10 @@
 			$isole = true;
 
 			for($hor = $x-1; $hor <= $x+1; $hor++) {
-				if ($hor >= 0 && $hor <= 4 && $hor != $x) {
+				if ($hor >= 0 && $hor <= 4) {
 
 					for($vert = $y-1; $vert <=$y+1; $vert++) {
-						if($vert >=0 && $vert <=4 && $vert != $y) {
+						if($vert >=0 && $vert <=4 && !($vert == $y && $hor == $x)) {
 
 							if($this->cases[$hor][$vert] != null) {
 								if ($this->cases[$hor][$vert] -> getId() != "null"){
