@@ -21,19 +21,19 @@ a {
 }
 #info{
   position:fixed;
-  width: 30%;
-  left:50%;
+  width: 40%;
+  left:40%;
   top:0;
 }
 #plateau{
   position:fixed;
-  width:50%;
+  width:40%;
   left:0;
   top:0;
 }
 #score{
   position:fixed;
   top:0;
-  width:20%;
-  left:80%;
+  width:15%;
+  left:85%;
 }

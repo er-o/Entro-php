@@ -138,7 +138,9 @@
 				$plateau -> affichage();
 
 				$_SESSION["plateau"] = serialize($plateau);
+				
 			?>
+			<a href="../launcher.html" id="reset"><button>RESET?</button></a>
 		<div id="score">
 			<div id="joueur1">
 			<?php
