@@ -68,11 +68,7 @@
 			}
 
 
-			$testJouabilite = $plateau -> getScore($plateau -> getTurn());
-			if($testJouabilite[1]==7 && $testJouabilite[0]!=0) {
-				$log = $plateau -> getTurn() -> toString().' a tous ses pions bloqués, mais certains isolés.Son tour est passé <br/>'.$log;
-				$plateau -> tourSuivant();
-			}
+
 
 
 			if(isset($_GET["action"])) {
@@ -101,6 +97,16 @@
 							} else {
 								$plateau -> tourSuivant();
 								$log = "C'est au tour de ".$plateau -> getTurn() -> toString()."<br/>".$log;
+
+								$nouvJoueur = $plateau -> getTurn();
+								$testJouabilite = $plateau -> getScore($nouvJoueur);
+								if($testJouabilite[1]==7 && $testJouabilite[0] > 0) {
+									$log = $plateau -> getTurn() -> toString().' a tous ses pions bloqués, mais certains isolés.Son tour est passé <br/>'.$log;
+									$plateau -> tourSuivant();
+								} else if($testJouabilite[1]==7 && $testJouabilite[0] == 0){
+										echo $nouvJoueur -> toString().' à gagner !';
+										$plateau -> victoire();
+								}
 							}
 
 						}
