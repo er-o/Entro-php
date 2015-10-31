@@ -72,6 +72,7 @@
 			} else {
 				$compteur = unserialize($_SESSION['compteur']) + 1;
 				$_SESSION['compteur'] = serialize($compteur);
+				echo $compteur;
 			}
 
 
