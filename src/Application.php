@@ -28,8 +28,13 @@
 			//Création ou récupération des joueurs
 			if(!isset($_SESSION["j1"])) {
 				if(isset($_GET["nomj1"])) {
+					if($_GET["nomj1"] == "") {
+						$j1 = new Joueur("joueur1", "j1");
+						$_SESSION["j1"] = serialize($j1);
+					} else {
 					$j1 = new Joueur($_GET["nomj1"], "j1");
 					$_SESSION["j1"] = serialize($j1);
+					}
 				} else {
 					$j1 = new Joueur("joueur 1", "j1");
 					$_SESSION["j1"] = serialize($j1);
@@ -40,8 +45,13 @@
 
 			if(!isset($_SESSION["j2"])) {
 				if(isset($_GET["nomj2"])) {
-					$j2 = new Joueur($_GET["nomj2"], "j2");
-					$_SESSION["j2"] = serialize($j2);
+					if($_GET["nomj2"] == "") {
+						$j1 = new Joueur("joueur2", "j2");
+						$_SESSION["j2"] = serialize($j1);
+					} else {
+						$j2 = new Joueur($_GET["nomj2"], "j2");
+						$_SESSION["j2"] = serialize($j2);
+					}
 				} else {
 					$j2 = new Joueur("joueur 2", "j2");
 					$_SESSION["j2"] = serialize($j2);
