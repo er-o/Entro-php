@@ -69,10 +69,12 @@
 
 			if(!isset($_SESSION['compteur'])) {
 				$compteur = 0;
-			} else {
-				$compteur = unserialize($_SESSION['compteur']) + 1;
 				$_SESSION['compteur'] = serialize($compteur);
-				echo $compteur;
+			} else {
+				$compteur = unserialize($_SESSION['compteur']);
+				$compteur = $compteur + 1;
+				$_SESSION['compteur'] = serialize($compteur);
+				$log =  $compteur.'<br/>'.$log;
 			}
 
 
