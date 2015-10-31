@@ -67,6 +67,18 @@
 				$log = unserialize($_SESSION['log']);
 			}
 
+			if(!isset($_SESSION['compteur'])) {
+				$compteur = 0;
+			} else {
+				$compteur = unserialize($_SESSION['compteur']) + 1;
+			}
+
+
+			if(!isset($_SESSION['prevCoup'])) {
+				$prevCoup = $plateau;
+			} else {
+				$log = unserialize($_SESSION['log']);
+			}
 
 
 
@@ -80,6 +92,7 @@
 						}
 						break;
 					case 'move_target' :
+						$prev_coup = $plateau;
 						if(isset($_GET['x']) && isset($_GET['y'])) {
 							$origin = unserialize($_SESSION['origin']);
 
@@ -123,6 +136,9 @@
 					case 'relacher_origin' :
 							unset($_SESSION['origin']);
 						break;
+					case 'previous' :
+							$plateau = $prev_coup;
+							break;
 					default:
 						break;
 				}
