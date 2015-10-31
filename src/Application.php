@@ -102,7 +102,7 @@
 						}
 						break;
 					case 'move_target' :
-						$prevCoup =$_SESSION['plateau'];
+						$prevCoup =unserialize($_SESSION['plateau']);
 						if(isset($_GET['x']) && isset($_GET['y'])) {
 							$origin = unserialize($_SESSION['origin']);
 
