@@ -91,7 +91,7 @@
 			if(!isset($_SESSION['prevCoup'])) {
 				$prevCoup = $plateau;
 			} else {
-				$log = unserialize($_SESSION['log']);
+				$prevCoup = unserialize($_SESSION['prevCoup']);
 			}
 
 
@@ -106,7 +106,7 @@
 						}
 						break;
 					case 'move_target' :
-						$prev_coup = $plateau;
+						$prevCoup = $plateau;
 						if(isset($_GET['x']) && isset($_GET['y'])) {
 							$origin = unserialize($_SESSION['origin']);
 
@@ -151,7 +151,7 @@
 							unset($_SESSION['origin']);
 						break;
 					case 'previous' :
-							$plateau = $prev_coup;
+							$plateau = $prevCoup;
 							break;
 					default:
 						break;
@@ -169,7 +169,7 @@
 		<div id="plateau">
 			<?php
 				$plateau -> affichage();
-
+				$_SESSION["prevCoup"] = serialize($prevCoup);
 				$_SESSION["plateau"] = serialize($plateau);
 
 
