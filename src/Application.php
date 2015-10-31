@@ -89,7 +89,7 @@
 
 
 			if(!isset($_SESSION['prevCoup'])) {
-				$prevCoup = $plateau;
+				$prevCoup = null;
 			} else {
 				$prevCoup = unserialize($_SESSION['prevCoup']);
 			}
