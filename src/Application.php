@@ -159,7 +159,7 @@
 		<div id="plateau">
 			<?php
 				$plateau -> affichage();
-
+				$_SESSION["prevCoup"] = serialize($prevCoup);
 				$_SESSION["plateau"] = serialize($plateau);
 
 
