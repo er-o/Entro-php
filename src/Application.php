@@ -164,10 +164,8 @@
 					echo '<a href="Application.php?action=relacher_origin"><button>Relacher le pion</button></a>';
 				}
 
-				if (isset($_SESSION['compteur'])) {
-					if($compteur >= 1){
-						echo '<a href="Application.php?action=previous"><button>Annuler le coup</button></a>';
-					}
+				if($compteur >= 1){
+					echo '<a href="Application.php?action=previous"><button>Annuler le coup</button></a>';
 				}
 			?>
 			<a href="../launcher.html" id="reset"><button>RESET?</button></a>
