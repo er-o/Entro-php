@@ -79,12 +79,8 @@
 
 			if(!isset($_SESSION['compteur'])) {
 				$compteur = 0;
-				$_SESSION['compteur'] = serialize($compteur);
 			} else {
 				$compteur = unserialize($_SESSION['compteur']);
-				$compteur = $compteur + 1;
-				$_SESSION['compteur'] = serialize($compteur);
-				$log =  $compteur.'<br/>'.$log;
 			}
 
 
@@ -126,6 +122,7 @@
 								$log = "C'est au tour de ".$plateau -> getTurn() -> toString()."<br/>".$log;
 
 								$nouvJoueur = $plateau -> getTurn();
+								$compteur = $compteur + 1;
 								$testJouabilite = $plateau -> getScore($nouvJoueur);
 								if($testJouabilite[1]==7 && $testJouabilite[0] > 0) {
 									$log = $plateau -> getTurn() -> toString().' a tous ses pions bloqués, mais certains isolés.Son tour est passé <br/>'.$log;
@@ -171,6 +168,7 @@
 				$plateau -> affichage();
 				$_SESSION["prevCoup"] = serialize($prevCoup);
 				$_SESSION["plateau"] = serialize($plateau);
+				$_SESSION['compteur'] = serialize($compteur);
 
 
 				if (isset($_SESSION['origin'])) {
