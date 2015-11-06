@@ -1,22 +1,59 @@
 <?php
+	/**
+	* La class Plateau
+	*
+	* Class permettant de représenter un Plateau, de l'identifier et de l'utiliser
+	*
+	* @package			Classes
+	* @author       Brewal & Cédric
+	* @version			Finale
+	*/
+
 	require 'Pion.php';
-
+	/**
+	 * Classe permettant de gérer le plateau et les déplacement
+	 */
 	class Plateau {
-		const NB_COLONNES = 5;
-		const NB_LIGNES = 5;
-
+		/**
+		 * Variable représentant le plateau
+		 * @var array
+		 */
 		var $cases;
+		/**
+		 * Variable donnant le joueur qui doit jouer
+		 * @var Joueur
+		 */
 		var $turn;
+		/**
+		 * Variable représentant le premier joueur
+		 * @var Joueur
+		 */
 		var $j1;
+		/**
+		 * Variable représentant le second joueur
+		 * @var Joueur
+		 */
 		var $j2;
+		/**
+		 * Variable donnant l'ensemble des pions du joueur 1
+		 * @var array
+		 */
 		var $pionsj1;
+		/**
+		 * Variable donnant l'ensemble des pions du joueur 2
+		 * @var array
+		 */
 		var $pionsj2;
+		/**
+		 * Booléan définissant si la partie est achevée ou non
+		 * @var boolean
+		 */
 		var $partieFini;
 
 		/**
 		* Fonction initialisant le Plateau
 		* @param Joueur $joueur1 Le premier joueur du jeu
-		* @param Joueur $joueur2 le second joueur du jeu
+		* @param Joueur $joueur2 Le second joueur du jeu
 		*/
 		function __construct($joueur1, $joueur2){
 			$this -> cases = array();
