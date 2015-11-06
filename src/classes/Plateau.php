@@ -13,6 +13,11 @@
 		var $pionsj2;
 		var $partieFini;
 
+		/**
+		* Fonction initialisant le Plateau
+		* @param Joueur $joueur1 Le premier joueur du jeu
+		* @param Joueur $joueur2 le second joueur du jeu
+		*/
 		function __construct($joueur1, $joueur2){
 			$this -> cases = array();
 			$this -> j1 = $joueur1;
@@ -23,10 +28,18 @@
 			$this -> partieFini = false;
 		}
 
+		/**
+		* Fonction donnant le joueur du tour actuel
+		* @return Joueur Le joueur devant jouer
+		*/
 		public function getTurn() {
 			return $this -> turn;
 		}
 
+		/**
+		* Fonction initialisant le plateau en créant le plateau et en y insérant les pions
+		*
+		*/
 		public function init() {
 
 			for ($x = 0; $x < 5; $x++)
@@ -76,12 +89,18 @@
 			}
 		}
 
-
+		/**
+		* Fonction indiquant que la victoire à été atteinte
+		*/
 		public function victoire() {
 			$this -> partieFini = true;
 		}
 
-		//Fonction affichant, mais servant aussi à gérer les coups possibles
+		/**
+		 * Fonction permettant à la fois de créer l'affichage, mais aussi de
+		 * determiner si chaque case peut donner un coup ou nom
+		 * (en utilisant la methode d'url long)
+		 */
 		public function affichage() {
 			echo '<table style="border: 1px solid black;">';
 			for ($x = 0; $x < 5; $x++) {
@@ -94,7 +113,7 @@
 							//Mouvement vers la prochaine case
 							$origin = unserialize($_SESSION["origin"]);
 							$target = [$x, $y];
-							//IMPORTANT : FAIRE LA FONCTION MOUVEMENTSPOSSIBLES (code bloqué en attendant)
+
 							if(in_array($target, $this -> mouvementsPossibles($origin[0], $origin[1]))) {
 								echo '<a href="Application.php?action=move_target&x='.$x.'&y='.$y.'" class="move">';
 							} else {
@@ -130,10 +149,13 @@
 		}
 
 
-
-		//A FAIRE
-		//param : coord x et y d'un pion
-		//return  : true ou false si le mouvement est possible (ie. pas isolé/pion alié proche)
+		/**
+		 * Fonction permettant de savoir si un pion à  un point donné peut se déplacer
+		 * Un pion peut se déplacer si un autre pion du même joueur est présent dans une case adjacente
+		 * @param  int $x La coordonnée x d'un pion
+		 * @param  int $y La coordonnée y d'un pion
+		 * @return boolean    Renvois vrai si le pion est déplaçable, faux sinon
+		 */
 		public function mouvementPossible($x, $y) {
 			$j_id = $this -> cases[$x][$y] -> getId();
 			$ret = false;
@@ -160,9 +182,12 @@
 			return ($ret && $libre);
 		}
 
-		//A FAIRE
-		//param : coord x et y d'un pion
-		//return : un array avec toutes les positions possibles
+		/**
+		 * Renvois toutes les cases qui permettent au pion à un point donné de ce déplacer
+		 * @param  int $x Coordonnée x du pion
+		 * @param  int $y Coordonnée y du pion
+		 * @return array    Le liste de tous les emplacements pouvant permettre au pion de se déplacer
+		 */
 		public function mouvementsPossibles($x, $y) {
 			$liste = array();
 			$bloquer = false;
@@ -284,7 +309,13 @@
 			return $liste;
 		}
 
-
+		/**
+		 * Fonction faisant se déplacer un pion d'un point à un autre
+		 * @param  int $x    Coordonnée x du pion se déplaçant
+		 * @param  int $y    Coordonnée y du pion se déplaçant
+		 * @param  int $tarx Coordonnée x du point d'arrivée
+		 * @param  int $tary Coordonnée y du point d'arrivée
+		 */
 		public function move($x, $y, $tarx, $tary) {
 			$pion = $this -> cases[$x][$y];
 			$tar = $this -> cases[$tarx][$tary];
@@ -298,12 +329,20 @@
 				}
 			}
 		}
-
+		/**
+		 * Fonction passant au tour suivant
+		 */
 		public function tourSuivant() {
 			$this -> turn = ($this-> turn == $this -> j1) ? $this -> j2 : $this -> j1 ;
 		}
 
-
+		/**
+		 * Fonction permettant de savoir si un pion à un point donnée est isolé
+		 * Un pion est isolé si aucun autre pion, que ce soit alié ou ennemie, n'est présent dans une case adjacente
+		 * @param  int $x Coordonnée x du pion
+		 * @param  int $y Coordonnée y du pion
+		 * @return boolean    Renvois vrai si le pion est isolé, faux sinon
+		 */
 		public function estIsole($x, $y) {
 			$pion = $this -> cases[$x][$y];
 			$isole = true;
@@ -328,7 +367,11 @@
 		}
 
 
-
+		/**
+		 * Fonction renvoyant la liste de tous les pions d'un joueur
+		 * @param  Joueur $joueur Le joueur auquel on veut obtenir les pionsj1
+		 * @return array         Liste de tous les pions d'un joueur
+		 */
 		public function getListePion($joueur) {
 			switch($joueur) {
 				case $this -> j1 :
@@ -340,6 +383,15 @@
 			}
 		}
 
+		/**
+		 * Fonction donnant le score d'un joueur
+		 * Le score est défini de la façon suivant :
+		 * Nombre de pions bloqués : c'est le nombre de pions impossible à bouger, mais qui ne sont pas isolé
+		 * Nombre de pions isolés : C'est le nombre de pions impossible à bouger, mais qui n'ont pas d'autre pions autours d'eux
+		 * Le joueur gagne si son nombre de pions bloqués vaut 7, et que sont nombre de pions isolés vaut 0
+		 * @param  Joueur $joueur Le joueur auquel on veut le joueur
+		 * @return array         Une liste de deux cases contenant le score. Le nombre de pions isolés est dans la première case, et le nombre de pions bloqués dans la deuxieme
+		 */
 		public function getScore($joueur){
 			$score = array();
 			$mouvements = 0;
