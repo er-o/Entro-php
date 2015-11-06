@@ -1,3 +1,7 @@
+body {
+  font-family: Arial;
+}
+
 a {
   display:block;
   width: 50px;
@@ -20,18 +24,20 @@ a {
   background-color: yellow;
 }
 #info{
-  position:fixed;
-  width: 35%;
-  left:40%;
+  text-align: left;
+  float:left;
+  width: 25%;
+  left:0%;
   top:0;
 }
 #plateau{
-  position:fixed;
-  width:40%;
-  left:0;
-  top:0;
+  position:relative;
+  margin:auto;
+  width:20%;
+  top:0%;
 }
 #score{
+  text-align: left;
   position:fixed;
   top:0;
   width:25%;
