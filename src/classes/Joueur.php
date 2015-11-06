@@ -1,10 +1,27 @@
 <?php
 	/**
-	* Class permettant d'avoir un Joueur, et de l'identifier
+	* La class Joueur
 	*
+	* Class permettant de représenter un joueur, de l'identifier et de l'utiliser
+	*
+	* @package			Classes
+	* @author       Brewal & Cédric
+	* @version			Finale
 	*/
+
+	/**
+	 * La classe represantant un Joueur dans la partie
+	 */
 	class Joueur {
+		/**
+		 * Le nom du joueur
+		 * @var string
+		 */
 		var $name;
+		/**
+		 * Son identifiant (j1 ou j2) afin de le différencier avec l'autre joueur
+		 * @var string
+		 */
 		var $id;
 
 		/**

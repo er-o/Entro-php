@@ -1,8 +1,33 @@
 <?php
+
+	/**
+	* La class Pion
+	*
+	* Class permettant de représenter un Pion, de l'identifier et de l'utiliser
+	*
+	* @package			Classes
+	* @author       Brewal & Cédric
+	* @version			Finale
+	*/
+
+	/**
+	 * La classe Pion represantant un pion jouable
+	 */
 	class Pion {
-		var $isole;
+		/**
+		 * Le joueur possédant le pion
+		 * @var Joueur
+		 */
 		var $joueur;
+		/**
+		 * L'identifiant du joueur (j1 ou j2) affin de les différencier
+		 * @var string
+		 */
 		var $id;
+		/**
+		 * Les coordonnée du pion sous la forme [x, y]
+		 * @var array
+		 */
 		var $coord;
 
 		/**
