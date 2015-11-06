@@ -186,8 +186,8 @@
 			<div id="joueur1">
 			<?php
 				$scorej1 = $plateau -> getScore($j1);
-				echo $j1 -> toString().' : pions isolés :'.$scorej1[0].'<br />';
-				echo $j1 -> toString().' : pions bloqués :'.$scorej1[1].'<br />';
+				echo $j1 -> toString().' : pions isolés : \t'.$scorej1[0].'<br />';
+				echo $j1 -> toString().' : pions bloqués : \t'.$scorej1[1].'<br />';
 
 			?>
 			</div>
