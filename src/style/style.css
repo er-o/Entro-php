@@ -21,7 +21,7 @@ a {
 }
 #info{
   position:fixed;
-  width: 40%;
+  width: 35%;
   left:40%;
   top:0;
 }
@@ -34,6 +34,6 @@ a {
 #score{
   position:fixed;
   top:0;
-  width:15%;
-  left:85%;
+  width:25%;
+  left:75%;
 }
