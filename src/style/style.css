@@ -1,45 +1,128 @@
-body {
-  font-family: Arial;
+body
+{
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif, Arial;
+}
+#launcher
+{
+    margin-left: 10px;
 }
 
-a {
-  display:block;
-  width: 50px;
-  height: 50px;
+a
+{
+    display: block;
+
+    width: 50px;
+    height: 50px;
 }
 
-.j1 {
-  background-color:blue;
+h1,
+h2
+{
+    font-family: 'Bookman Old Style', serif;
+
+    text-align: center;
 }
-.j2 {
-  background-color:green;
+h3
+{
+    font-family: 'Bookman Old Style', serif;
 }
-.null {
-  background-color: white;
+
+
+.j1
+{
+    background-color: blue;
 }
-.move {
-  background-color: lightgreen;
+.j2
+{
+    background-color: green;
 }
-.partieFini {
-  background-color: yellow;
+.null
+{
+    background-color: white;
 }
-#info{
-  text-align: left;
-  float:left;
-  width: 25%;
-  left:0%;
-  top:0;
+.move
+{
+    background-color: lightgreen;
 }
-#plateau{
-  position:relative;
-  margin:auto;
-  width:20%;
-  top:0%;
+.partieFini
+{
+    background-color: yellow;
 }
-#score{
-  text-align: left;
-  position:fixed;
-  top:0;
-  width:25%;
-  left:75%;
+#info
+{
+    float: left;
+
+    width: 33%;
+    margin-left: 10px;
+
+    text-align: left;
+}
+#plateau
+{
+    top: 0;
+
+    float: left;
+
+    width: 33%;
+    margin: auto;
+    padding: auto;
+
+    text-align: center;
+}
+#plateau table
+{
+    margin: auto;
+    padding: auto;
+}
+#plateau #bouton
+{
+    float: center;
+
+    width: 50%;
+    margin: auto;
+    padding: auto;
+}
+#plateau #bouton #b1
+{
+    float: left;
+
+    width: 33%;
+    margin: auto;
+    padding: auto;
+}
+#plateau #bouton #b2
+{
+    float: right;
+
+    width: 33%;
+    margin: auto;
+    padding: auto;
+}
+#plateau #bouton #reset
+{
+    float: center;
+
+    width: 33%;
+    margin: auto;
+    padding: auto;
+}
+
+#score
+{
+    float: right;
+
+    width: 25%;
+
+    text-align: center;
+}
+#score table
+{
+    empty-cells: hide;
+    border-spacing: 20px 0;
+
+    text-align: center;
+}
+#score #left
+{
+    text-align: left;
 }

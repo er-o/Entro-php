@@ -1,24 +1,28 @@
 <html>
-	<head>
-		<title>Jeu de l'Entropie</title>
-		<meta charset="utf-8" />
-	</head>
+<head>
+	<title>Jeu de l'Entropie</title>
+	<meta charset="utf-8" />
+	<link href="src/style/style.css" type="text/css" rel="stylesheet" media="all" />
+</head>
 
-	<body>
+<body id="launcher">
 
-		<h1>Jeu de l'entropie</h1>
+	<h1>Jeu de l'entropie</h1>
 
-		<p>Bienvenue sur le jeu de l'entropie. Le but est simple : devenir bloqué le plus rapidement possible.</p>
-		<p>Les conditions de victoires sont :</p>
-		<p>-N'avoir aucun pions isolés</p>
-		<p>-Avoir les 7 pions bloqués</p>
+	<h2>Bienvenue sur le jeu de l'entropie. </h2>
+	<h3>Le but du jeu :</h3>
+	<p>&nbsp;&nbsp;Devenir bloqué le plus rapidement possible.</p>
+	<h3>Les conditions de victoires sont :</h3>
+	<p>&nbsp;&nbsp;- N'avoir aucun pions isolés
+		<br/>&nbsp;&nbsp;- Avoir les 7 pions bloqués</p>
 
+		<h3>Le nom des joueurs :</h3>
 		<form action="src/Application.php" method="GET">
-			<label>Nom du Joueur 1</label><input type="text" name="nomj1" /><br/>
-			<label>Nom du Joueur 2</label><input type="text" name="nomj2" /><br/>
+			<label>&nbsp;&nbsp;Joueur 1</label><input type="text" name="nomj1" value="joueur1"/><br/>
+			<label>&nbsp;&nbsp;Joueur 2</label><input type="text" name="nomj2" value="joueur2"/><br/>
 			<input type="hidden" name="reset" value="1">
-			<button onclick="lanceur">Jouer maintenant</button>
+			<button onclick="lanceur">Lancer la partie</button>
 		</form>
 
 	</body>
-</html>
+	</html>
